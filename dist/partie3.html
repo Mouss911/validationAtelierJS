@@ -120,7 +120,27 @@
             
                 </div>
                 <div class="bg-white  pt-2 myDiv ">
-                   
+                    <div id="myModal" class="modal">
+                        <div class="contenu-modal" id="contenu">
+                            <div id="div-afiche"></div>
+                            <span class="span" id="span">&times;</span>
+                            <form id="form" class="py-3">
+                                <input type="text" id="prenom"  placeholder="Prenom" required><br><br>
+                                <input type="text" id="nom" placeholder="Nom " required><br><br>
+                                <input type="number" id="etat" placeholder="etat " required><br><br>
+                                <select name="filter" class="borde" id="classeSelect">
+                                    <option value="">Classe</option>
+                                    <option value="6eme">6eme</option>
+                                    <option value="5eme">5eme</option>
+                                    <option value="4eme">4eme</option>
+                                    <option value="3eme">3eme</option>
+                                </select><br><br>
+                                <button class="btnAjouter">Ajouter</button>
+                            </form>
+                
+                            
+                        </div>
+                    </div>
                     <form class="d-flex mt-4 justify-content-between flex-wrap">
                         <div class="d-flex ms-5">
                             <p class="me-4 fs-5 fw-bold ">Classes:</p>
