@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: gainsboro;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    height: 580px;
+}
+.container-form{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    align-items: center;
+    margin: 60px auto;
+    background-color: whitesmoke;
+    border-radius: 20px 0 0 20px;
+}
+.partie-1{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    height: 200px;
+}
+.titre-conn{
+    margin-bottom: 15px;
+}
+
+.vl {
+    border-left: 2px solid black;
+    height: 20px;
+    margin: 15px;
+
+  }
+
+.input{
+    border: 2px solid lightgrey;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 5px;
+}
+
+.input i{
+    margin: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.form-control{
+    border: white;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.lien{
+    display: flex;
+    justify-content: start;
+    margin-bottom: 20px;
+
+}
+.button{
+    width: 280px;
+    height: 45px;
+    border: 2px solid lightgrey;
+    color: rgb(28, 212, 28);
+    background-color: black;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+span a {
+    text-decoration: none;
+    text-align: end;
+    
+}
+
+.partie-2{
+    border: 2px solid black;
+    border-radius: 20px 0 0 20px;
+    width: 53%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(16, 15, 15);
+}
+.partie-2 img{
+    width: 170px;
+    height: 200px;
+}
+
+@media screen and (max-width: 900px){
+    .container-form{
+        width: 450px;
+        display: flex;
+        height: 650px;
+        flex-direction: column-reverse;
+        align-items: center;
+        border-radius: 0;
+    }
+    .titre-conn{
+        font-size: 15px;
+    }
+    .input{
+        width: 300px;
+    }
+    span a{
+        font-size: 15px;
+    }
+    .form{
+        height: 200px;
+    }
+    .button{
+        width: 300px;
+    }
+    .partie-1{
+        width: 400px;
+        margin-top: 20px;
+        height: 200px;
+    }
+    .partie-2{
+        height: 250px;
+        width: 300px;
+        border-radius: 0;
+        margin-bottom: 20px;
+        margin-top: 30px;
+
+    }
+}
