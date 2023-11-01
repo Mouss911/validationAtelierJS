@@ -1,0 +1,49 @@
+
+.tt{
+    width: 80px;
+    height: 80px;
+    background-color: #00E100;
+    margin: auto;
+}
+
+.fa-plus{
+    font-size: 45px !important;
+    color: #fff;
+    background: transparent;
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #d1cccc;
+
+  }
+  
+  i.fa-search {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #333;
+  }
+
+  .search-container .in1{
+     padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 15px #d1cccc;
+    margin-right: 10px;
+    }
+
+  label{
+    float: left;
+    margin-left: 25px;
+  }
