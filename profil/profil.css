@@ -1,4 +1,7 @@
 
+.profilGeneral{
+    margin-top: 100px;
+}
 .myProfil img{
     width: 125px;
     height: 125px;
@@ -39,4 +42,8 @@
     .infoGeneral .info{
         width: 100%;
     }  
+
+    .profilGeneral{
+        margin-top: 200px;
+    }
 } 
