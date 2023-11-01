@@ -79,3 +79,5 @@ if (alertTrigger) {
     appendAlert('Linscription est effectué avec succès', 'success');
   });
 }
+
+// Sidebar
