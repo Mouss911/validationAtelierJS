@@ -7,11 +7,12 @@ body{
     background-color: #EFF2F6;
 }
 .nav {
-    height: 5%;
+    position: fixed;
     font-size: 18px;
     z-index: 1;
     border-bottom: 2px solid #ffffff7e;
     background-color: #ffffff;
+    width: 100%;
 }
 .nav span{
     font-weight: bold;
@@ -42,15 +43,16 @@ input{
 }
 .sidebar {
     display: block;
-    position: absolute;
+    position: fixed;
     left: 0;
-    top: 50;
-    height: 95%;
+    /* top: -100; */
+    height: 100%;
     background-color: #000000;
     padding: 6px 14px;
-    z-index: 1;
+    z-index: 0;
     transition: all 0.5s ease;
     /* width: 200px; */
+    margin-top: 5%;
 }
 
 .menu{
@@ -202,6 +204,7 @@ input{
     .sidebar{
         display: none;
         top: 0;
+        z-index: 2;
     }
     .compte{
         display: flex;
