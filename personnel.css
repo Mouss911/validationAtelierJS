@@ -150,13 +150,17 @@ body{
         /* margin: auto; */
     }
     .main-skil .card {
-        width: 100%;
+        width: 70%;
     }
     .bak{
-        height: 95vh;
+        height: 96vh;
     }
     
     .input{
-        width: 60%;
+        width: 70%;
+    }
+
+    h2{
+        margin-top: 10px;
     }
 }

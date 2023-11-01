@@ -13,6 +13,9 @@
       input {
           outline: none;
       }
+      .liste{
+        font-size: 15px;
+      }
 
       .ajout {
           width: 75px;
