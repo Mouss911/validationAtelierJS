@@ -21,10 +21,10 @@ table thead, .myBtn{
 .myInput2 {
         width: 25%;
     }
-/* .myContDiv{
-    /* margin-left: 5%; 
-    /* margin-right: 5%; 
-} */
+.myContDiv{
+     margin-left: 5%; 
+     margin-right: 2.5%; 
+}
 @media only screen and (max-width: 600px) {
     .myInput {
         width: 100%;
@@ -63,6 +63,10 @@ table thead, .myBtn{
     color: #ffffff;
     border: none;
 }
+
+/* Partie Moussa */
+.cage{ border-radius: 10px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);}
+/* Partie Moussa */
 
 @media screen and (max-width: 767px){ 
     .infoGeneral .info{

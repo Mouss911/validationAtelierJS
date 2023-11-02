@@ -17,12 +17,7 @@ tfoot{
     margin: 100px auto;
     
 }
-
- .total{
-    display: flex;
-    justify-content: space-between;
-    margin-inline: 50px;
-} 
+ 
 
 *{
     margin: 0;

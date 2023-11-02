@@ -34,13 +34,24 @@ const barChart = new Chart(barCanvas, {
     data: {
         labels: ["Oct", "Nov", "Dec", "Jan", "Fev", "Mar", "Avr", "Mai", "Jui", "Jul", "Aout", "Sep"],
         datasets: [{
-            data: [16,12,14,13,7,8,15,2,3,9,5,1],
+            data: [200000,120000,140000,300000,400000,300000,190000,200000,310000,150000,400000,300000],
             label: ["Dépense"],
             backgroundColor: [
-                "red"
+                "black"
             ],
             borderColor: [
-                "blue"
+                "black"
+            ],
+            borderWidth: 1
+        },
+        {
+            data: [475000,300000,400000,391000,450000,375000,330000,280000,400000,270000,490000,350000],
+            label: ["Revenue"],
+            backgroundColor: [
+                "gray"
+            ],
+            borderColor: [
+                "gray"
             ],
             borderWidth: 1
         }]
@@ -48,7 +59,7 @@ const barChart = new Chart(barCanvas, {
     options: {
         scales: {
             y: {
-                suggestedMax: 35,
+                suggestedMax: 500000,
                 tricks: {
                     font: {
                         size: 20

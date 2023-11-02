@@ -28,32 +28,27 @@ const db = getFirestore(app);
 // Récupérer la collection
 const eleve = collection(db, 'inscScolarite');
 
-getDocs(eleve).then((snapshot) => {
+getDocs(eleve).then((snapshot) => {});
+
+// Realtime Update
+onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
+  const list = document.querySelector('#list');
+  list.innerHTML = '';
   //   console.log(eleve);
   eleve.forEach((utili) => {
-    const list = document.querySelector('#list');
-    list.innerHTML = '';
     const tr = document.createElement('tr');
     tr.innerHTML = `
-    <td class="text-start ps-2 border border-1">${utili.etatFin}</td> <td class="text-start ps-2 border border-1">${utili.etatFin}</td>
+    <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
         <a href="#" class="btn fs-4 opacity-50 btn-sm modifier"><i class="fa-regular fa-eye"></i></a>
         </td>`;
     list.appendChild(tr);
   });
 });
-
-// Mise à jour auto
-// onSnapshot
-//   .orderByChild('timestamp')
-//   .limitToLast(10)
-//   .on(eleve, (snapshot) => {
-
-//   });
 
 // Enregistrer des données dans le Firebase
 const form = document.querySelector('.addToFirebase');
