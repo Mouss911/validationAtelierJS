@@ -18,10 +18,11 @@ tfoot{
     
 }
 
-/* .foot{
+ .total{
     display: flex;
-    justify-content: space-around;
-} */
+    justify-content: space-between;
+    margin-inline: 50px;
+} 
 
 *{
     margin: 0;
