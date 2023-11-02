@@ -24,52 +24,44 @@ menu.addEventListener('click', () => {
   }
 });
 
-// var x = window.matchMedia("(max-width: 767px)")
-// var y = window.matchMedia("(min-width: 768px)")
-//   menu.addEventListener("click", () => {
-//     if (sidebar.style = "display: none") {
-//       sidebar.style.display = "block"
-//   }
-// //   if (sidebar.style = "display: block") {
-// //     console.log('non');
-// //     sidebar.style.display = "none"
-// // }
-// // else {
-// //     sidebar.style.display = "none"
-// //   }
-//     // if (x.matches) {
-//     //   if (sidebar.classList.contains('displayBlock')) {
-//     //     sidebar.classList.remove('displayBlock')
-//     //     sidebar.style.display = 'none'
-//     //     menu.style.marginLeft = '0px'
-//     //   } else {
-//     //     sidebar.classList.add('displayBlock')
-//     //     sidebar.style.display = 'block'
-//     //     closeBtn.style.display = 'none'
-//     //     menu.style.marginLeft = '150px'
-//     //   }
-//     //   console.log('no');
-//     // }
-//     // if (y.matches){
-//     //   if (sidebar.style.display == 'none') {
-//     //     sidebar.style.display = 'block'
-//     //   }
-//     // }
 
-//     // sidebar.classList.toggle('displayBlock')
 
-//   });
-//   menu.addEventListener("dblclick", () => {
-//     console.log('yes');
-//     if (sidebar.style = "display: block") {
-//       sidebar.style.display = "none"
-//   }
+// PARTIE MOUSSA
+const barCanvas = document.getElementById("barCanvas");
 
-// });
-
-// else {
-//   sidebar.style.display = 'block'
-// }
-// if (y.matches){
-//   sidebar.style.display = 'block'
-// }
+const barChart = new Chart(barCanvas, {
+    type: "line",
+    data: {
+        labels: ["Oct", "Nov", "Dec", "Jan", "Fev", "Mar", "Avr", "Mai", "Jui", "Jul", "Aout", "Sep"],
+        datasets: [{
+            data: [16,12,14,13,7,8,15,2,3,9,5,1],
+            label: ["Dépense"],
+            backgroundColor: [
+                "red"
+            ],
+            borderColor: [
+                "blue"
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                suggestedMax: 35,
+                tricks: {
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            x: {
+                tricks: {
+                    font: {
+                        size: 20
+                    }
+                }
+            }
+        }
+    }
+})

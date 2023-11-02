@@ -119,12 +119,54 @@
                 </div>
             </div>
             <div class="col-12 col-md-10 mt-5 myContain pt-5">
+                <!-- __________________________ -->
+                  <!-- SECTION DE MOUSSA -->
+                  <section class="moussa">
+                    <h2>Comptabilité</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="text-center pb-3">Revenus</h6>
+                                <div class="milieu d-flex justify-content-between">
+                                    <p>20.000.000 <span class="fw-bold">FCFA</span></p>
+                                    <img src="image/icone-revenu.png" alt="">
+                                </div>
+                                <p>07/12/20</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="text-center pb-3">Dépenses</h6>
+                                <div class="milieu d-flex justify-content-between">
+                                    <p>20.000.000 <span class="fw-bold">FCFA</span></p>
+                                    <img src="image/Group.png" alt="">
+                                </div>
+                                <p>07/12/20</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="chart-container">
+                            <canvas id="barCanvas" aria-label="chart" role="img"></canvas>
+                        </div>
+                    </div>
+                    <br><br>
+                </section>
+                <hr>
+
+                <!-- __________________________ -->
                 <section class="" id="inscSco">
                     <div class="myContDiv">
-                        <div class="py-4 d-flex justify-content-between">
-                            <h4 class="fw-semibold">Comptabilité</h4>
+                        <div class=" d-flex justify-content-center">
                             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInscSco">
-                                <i class="fa-solid fa-circle-plus"></i>
+                                <i class="fa-solid fa-circle-plus fs-1"></i>
                             </button>
                         </div>
                         <div class="inscriptions d-flex justify-content-between flex-wrap py-4 border-bottom">
@@ -208,11 +250,59 @@
                   </div>
                 </div>
               </div>
+              <hr>
+
+              <!-- SECTION PAPE CHEIKH -->
+              <section class="pape myContDiv bg-white rounded shadow">
+                <div class="revenu mx-2">
+                    <h5 class="my-5 pt-4 px-2">Revenue</h5>
+                    <div class="contenue px-2">
+                        <table class="table border">
+                            <thead class="mx-2">
+                              <tr class="border border-2">
+                                  <th scope="col">Dates</th>
+                                  <th scope="col">Type</th>
+                                  <th scope="col">Concernee</th>
+                                  <th scope="col">Montant</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td >1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>45000 fcfa</td>
+                              </tr>
+                              <tr>
+                                <td >1</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>45000 fcfa</td>
+                            </tr>
+                            <tr>
+                                <td >1</td>
+                                <td>Larry the Bird</td>
+                                <td>@twitter</td>
+                                <td>45000 fcfa</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="foot">
+                            
+                                <p>Total</p>
+                                <p>45000</p>
+                            
+                        </div>
+                    </div>
+                </div>
+              </section>
+
             </div>
         </div>
     </div> 
 
      <script src="bundle.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
      <script src="sidebar.js"></script>
 </body>
 </html>
