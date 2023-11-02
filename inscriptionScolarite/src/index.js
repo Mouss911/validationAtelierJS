@@ -36,10 +36,9 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  const list = document.querySelector('#list');
-  list.innerHTML = '';
   //   console.log(eleve);
   eleve.forEach((utili) => {
+    const list = document.querySelector('#list');
     const tr = document.createElement('tr');
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
