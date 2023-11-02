@@ -29,7 +29,7 @@ body{
 .center{
     background: linear-gradient(rgba(50, 39, 39, 0.5), rgba(25, 19, 19, 0.5)), url('unnamed 1.png') center center/cover no-repeat;
     border-radius: 10px;
-    height: 80vh;
+    height: 70vh;
     width: 50%;
     position: relative;
     text-align: center; 
@@ -37,7 +37,9 @@ body{
     align-items: center;
     justify-content: center;
     
+    
 }
+
 
 .center2{
     width: 55%;
