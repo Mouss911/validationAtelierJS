@@ -30,16 +30,16 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
         })
         </script>
-        <script src="bundle.js" defer></script>
-        <link rel="stylesheet" href="/dashbord/dashbord.css">
+        <link rel="stylesheet" href="sidebar.css">
+        <link rel="stylesheet" href="profil.css">
         <link rel="stylesheet" href="revenue.css">
-        <title>Jeemacoder Js Challenge</title>
+        <title>Comptabilité</title>
     </head>
 <body>
     <div class="container-fluid">
         <div class="row nav p-2 mt-md-0 d-flex justify-content-between align-items-center">
             <div class="col-6 col-md-2 logo">
-                <img src="logo.png" alt="">
+                <img src="./image/logo.png" alt="">
             </div>
             <div class="col-12 col-md-5 mt-3 text-center calendrier">
                 <p>Année scolaire: <span>2022-2023</span></p>                
@@ -52,11 +52,9 @@
             <div class="col-6 col-md-3 d-flex flex-row compte">
                 <i class="fa-regular fa-bell mt-1"></i>
                 <div class="profil ms-3">
-                    <img src="profil.jpeg" alt="">
+                    <img src="./image/profil.jpeg" alt="">
                 </div>
-                <a href="#" style="color: #000000;">
-                    <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
-                </a>
+                <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
             </div>
         </div>
     </div>    
@@ -121,172 +119,53 @@
                    </ul>
                 </div>
             </div>
-            <div class="revenu mx-2">
-                <h5 class="my-5 pt-4 px-2">Revenue</h5>
-                <div class="contenue px-2">
-                    <table class="table table-bordered">
-                        <thead class="mx-2">
-                            <tr class="border border-2">
-                                <th scope="col">Dates</th>
-                                <th scope="col">Type</th>
-                                <th scope="col">Concernee</th>
-                                <th scope="col">Montant</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr >
-                              <td>10/10/2020</td>
-                              <td>Inscription Scolarité</td>
-                              <td>Moussa Ndiaye</td>
-                              <td>45000 fcfa</td>
-                            </tr>
-                            <tr>
-                              <td>10/10/2020</td>
-                              <td>Inscription Cantine</td>
-                              <td>Absa Fall</td>
-                              <td>45000 fcfa</td>
-                          </tr>
-                          <tr>
-                              <td colspan="3"><b>TOTAL</b></td>
-                              <td>45000 fcfa</td>
-                            </tr>
-                          </tbody>
-                      </table>
-                    
+            <div class="col-12 col-md-10 mt-5 myContain pt-5">
+    
+
+              <!-- SECTION PAPE CHEIKH -->
+              <section class="pape myContDiv bg-white rounded shadow">
+                <div class="revenu mx-2">
+                    <h5 class="my-5 pt-4 px-2">Revenue</h5>
+                    <div class="contenue px-2">
+                        <table class="table ">
+                            <thead class=" ">
+                                <tr class="border border-2">
+                                    <th scope="col" class="px-4">Dates</th>
+                                    <th scope="col" class="text-center">Type</th>
+                                    <th scope="col" class="text-center">Concernés</th>
+                                    <th scope="col" class="px-4">Montant</th>
+                                </tr>
+                              </thead>
+                              <tbody id="revenue">
+                                <tr >
+                                  <td class="border border-1">10/10/2020</td>
+                                  <td class="text-center">Inscription Scolarité</td>
+                                  <td class="text-center border border-1">Moussa Ndiaye</td>
+                                  <td class="border border-1">45000 Fcfa</td>
+                                </tr>
+                                <tr>
+                                  <td class="border border-1">10/10/2020</td>
+                                  <td class="text-center border border-1">Inscription Cantine</td>
+                                  <td class="text-center border border-1">Absa Fall</td>
+                                  <td class="border border-1">45000 Fcfa</td>
+                              </tr>
+                              <tr>
+                                  <td colspan="3" class="border border-1"><b>TOTAL</b></td>
+                                  <td class="border border-1"> <b>45000 Fcfa</b></td>
+                                </tr>
+                              </tbody>
+                          </table>
+                        
+                    </div>
                 </div>
+              </section>
+
             </div>
         </div>
     </div> 
 
-     <script src="slidebar.js"></script>
+     <script src="bundle.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+     <script src="sidebar.js"></script>
 </body>
 </html>
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="revenue.css">
-    <title>Firebase</title>
-    <script defer src="bundle.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div>
-            <h3>Comptabilité - <b>Revenue</b></h3>
-        </div>
-        <div class="revenu">
-            <h4 class="my-5 pt-4 px-2">Comptabilité - <b>Revenue</b></h4>
-            <div class="contenue px-2">
-                <table class="table">
-                    <thead class="mx-2">
-                      <tr>
-                          <th scope="col">Dates</th>
-                          <th scope="col">Type</th>
-                          <th scope="col">Concernee</th>
-                          <th scope="col">Montant</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td >1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>45000 fcfa</td>
-                      </tr>
-                      <tr>
-                        <td >1</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>45000 fcfa</td>
-                    </tr>
-                    <tr>
-                        <td >1</td>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>45000 fcfa</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div class="foot">
-                    
-                        <p>Total</p>
-                        <p>45000</p>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-
-<!-- <!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <body>
-        <div class="container">
-            <div>
-                <h3>Comptabilité - <b>Revenue</b></h3>
-            </div>
-            <div class="revenu">
-                <h4 class="my-5 pt-4 px-2">Comptabilité - <b>Revenue</b></h4>
-                <div class="contenue px-2">
-                    <table class="table">
-                        <thead class="mx-2">
-                          <tr>
-                              <th scope="col">Dates</th>
-                              <th scope="col">Type</th>
-                              <th scope="col">Concernee</th>
-                              <th scope="col">Montant</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td >1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>45000 fcfa</td>
-                          </tr>
-                          <tr>
-                            <td >1</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>45000 fcfa</td>
-                        </tr>
-                        <tr>
-                            <td >1</td>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>45000 fcfa</td>
-                          </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Total</th>
-                                <th>45000</th>
-                            </tr>
-                        </tfoot>
-                      </table>
-                </div>
-            </div>
-        </div>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
-</html>
- --> -->
