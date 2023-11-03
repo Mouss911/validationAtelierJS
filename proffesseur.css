@@ -1,0 +1,37 @@
+      .bg-green {
+          background-color: #11e100;
+      }
+
+      .elements {
+          background-color: hsl(0, 0%, 100%);
+      }
+
+      body {
+          background-color: #eff2f6;
+      }
+
+      input {
+          outline: none;
+      }
+      .liste{
+        font-size: 15px;
+      }
+
+      .ajout {
+          width: 75px;
+          height: 75px;
+      }
+
+      .bouton {
+          background-color: #504f4f;
+          font-size: 12px;
+      }
+
+      .shadow,
+      #formulaireModification {
+          display: none;
+      }
+
+      .container {
+          width: 100%;
+      }
