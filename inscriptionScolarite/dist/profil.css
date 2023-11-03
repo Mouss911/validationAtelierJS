@@ -38,8 +38,13 @@ table thead, .myBtn{
         margin-left: 0;
         margin-right: 0;
     }
+
+    .my-tab{
+        font-size: 12px;
+    } 
+  
 }
-/*  */
+
 .info{
     margin-top: 25px;
     width: 100%;
