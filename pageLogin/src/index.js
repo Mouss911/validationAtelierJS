@@ -48,73 +48,23 @@ const app = initializeApp(firebaseConfig);
 
 //Initialisation des services
 const db = getFirestore(app);
-// const auth = getAuth(app);
-const utilisateurs = collection(db, 'utilisateurs');
-const users = collection(db, 'users');
-//--------------utilisateurs------------
-getDocs(utilisateurs).then((snapshot) => {
-  //rrécuper les données
-  let utilisateurs = [];
-  snapshot.docs.forEach((doc) => {
-    utilisateurs.push({ ...doc.data(), id: doc.id });
-  });
-  console.log(utilisateurs);
-});
-//-------------users----------------
-getDocs(users).then((snapshot) => {
-  //rrécuper les données
-  let users = [];
-  snapshot.docs.forEach((doc) => {
-    users.push({ ...doc.data(), id: doc.id });
-  });
-  console.log(users);
-});
-
-//--------DOM---------------------
-const submit = document.querySelector('.signup');
-submit.addEventListener('submit', (e) => {
+const auth = getAuth(app);
+//---------------test------------
+//Inscrire l'utilisateur
+const signupForm = document.querySelector('.signup');
+signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const email = submit.email.value;
-  const password = submit.password.value;
+
+  const email = signupForm.email.value;
+  const password = signupForm.password.value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((cred) => {
-      console.log('utilisateur inscrit:', cred.user);
-      submit.reset();
+      console.log('utilisateur cree:', cred.user);
+      alert('inscription reussi !');
+      signupForm.reset();
     })
     .catch((err) => {
       console.log(err.message);
     });
 });
-
-//----------------------new projet---------------------
-// import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js';
-// import {
-//   getDatabase,
-//   ref,
-//   set,
-//   child,
-// } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js';
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyCapWD8dc3uaokouNrzlWiGE6T9MBtaxqE',
-//   authDomain: 'formjs-72d03.firebaseapp.com',
-//   projectId: 'formjs-72d03',
-//   storageBucket: 'formjs-72d03.appspot.com',
-//   messagingSenderId: '31328251478',
-//   appId: '1:31328251478:web:f251da2c4e4688b51f55f7',
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-
-// //-----get ref to database services------------
-
-// const db = getDatabase(app);
-
-// document.getElementById('submit').addEventListener('click', function (e) {
-//   set(ref(db, 'email/' + document.getElementById('email').value), {
-//     email: document.getElementById('email').value,
-//     password: document.getElementById('password').value,
-//   });
-//   alert('login Succesfull');
-// });
