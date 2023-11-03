@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/14273d579a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="partie4.css">
+    <title>Mensualites</title>
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+
+</head>
+
+<body class="bg-light">
+    <div class="container-fluid">
+        <div class="row nav p-2 mt-md-0 d-flex justify-content-between align-items-center">
+            <div class="col-6 col-md-2 logo">
+                <img src="./image/logo (2).png" alt="">
+            </div>
+            <div class="col-12 col-md-5 mt-3 text-center calendrier">
+                <p>Année scolaire: <span>2022-2023</span></p>
+                <i class="fa-solid fa-angle-left ms-5 me-5"></i>
+                <i class="fa-solid fa-angle-right ms-5"></i>
+            </div>
+            <div class="col-12 col-md-2 search">
+                <input type="text" name="" id="" placeholder="Rechercher" class="p-3">
+            </div>
+            <div class="col-6 col-md-3 d-flex flex-row compte">
+                <i class="fa-regular fa-bell mt-1"></i>
+                <div class="profil ms-3">
+                    <img src="./image/profil.jpeg" alt="">
+                </div>
+                <a href="#" style="color: #000000;">
+                    <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-1">
+                <div class="menu d-flex d-md-none">
+                    <i class="fa-solid fa-bars" id="menu"></i>
+                </div>
+                <div class="sidebar">
+                    <div class="logo-details" id="btn">
+                    </div>
+                    <ul class="nav-list">
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-table-columns"></i>
+                                <span class="links_name">Accueil</span>
+                            </a>
+                            <span class="tooltip">Accueil</span>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-regular fa-user"></i>
+                                <span class="links_name">Personnel</span>
+                            </a>
+                            <span class="tooltip">Personnel</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-chart-pie"></i>
+                                <span class="links_name">Comptablité</span>
+                            </a>
+                            <span class="tooltip">Comptablité</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <span class="links_name">Eléves</span>
+                            </a>
+                            <span class="tooltip">Eléves</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                                <span class="links_name">Proffesseurs</span>
+                            </a>
+                            <span class="tooltip">Proffesseurs</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-regular fa-address-card"></i>
+                                <span class="links_name">Autentifications</span>
+                            </a>
+                            <span class="tooltip">Autentifications</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-people-arrows"></i>
+                                <span class="links_name">Droits</span>
+                            </a>
+                            <span class="tooltip">Droits</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-10 offset-md-1 mt-5 pt-5">
+                <div class="containe mt-3">
+                    <div class="py-4 d-flex justify-content-between">
+                        <h4 class="fw-semibold">Comptabilité</h4>
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        </button>
+                    </div>
+                    <div class="d-flex justify-content-between mt-5 flex-wrap">
+                        <p><a href="#">Inscription scolarité</a></p>
+                        <p><a href="partie3.html">Inscription autre activité</a></p>
+                        <p><a href="#">Mansualité</a></p>
+                    </div>
+                    <hr>
+
+                </div>
+                <div class="bg-white  pt-2 myDiv ">
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mensualites</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="myForm">
+                                        <div class="mb-3">
+                                            <label for="nom" class="form-label">Nom</label>
+                                            <input type="text" class="form-control shadow-sm" required id="nom">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="prenom" class="form-label">Prénom</label>
+                                            <input type="text" class="form-control shadow-sm" required id="prenom">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="etatFin" class="form-label">Etat Financier</label>
+                                            <input type="number" class="form-control shadow-sm" required id="etat">
+                                        </div>
+                                        <div class="mb-3">
+                                            <select class="form-select" id="type">
+                                                <option class="dis" disabled selected>Type</option>
+                                                <option value="Mensualites  Activité">Mensualites Activité</option>
+                                                <option value="Mensualites  Cantine">Mensualites Cantine</option>
+                                                <option value="Mensualites ">Mensualites Scolarités</option>
+                                            </select><br><br>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="classe" class="form-label">Classe</label>
+                                            <select class="form-select" id="classe">
+                                                <option class="dis" disabled selected>Classe</option>
+                                                <option value="sizieme">6ème</option>
+                                                <option value="cinquieme">5ème</option>
+                                                <option value="quatrieme">4ème</option>
+                                                <option value="troisieme">3ème</option>
+                                            </select>
+                                        </div>
+                                        <div id="liveAlertPlaceholder"></div>
+                                        <button class="btnAjouter">Enregistrer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <form class="d-flex mt-4 justify-content-between flex-wrap">
+                        <div class="d-flex ms-5">
+                            <p class="me-4 fs-5 fw-bold ">Classes:</p>
+
+                            <select class="form-select" id="classe">
+                                <option selected>Classe</option>
+                                <option class="dis" disabled selected>Classe</option>
+                                <option value="sizieme">6ème</option>
+                                <option value="cinquieme">5ème</option>
+                                <option value="quatrieme">4ème</option>
+                                <option value="troisieme">3ème</option>
+                            </select>
+                        </div>
+                        <div class="divBar">
+                            <input type="search" placeholder="Rechercher" class="searchbar" />
+                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
+                                <g>
+                                    <path
+                                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+
+                    </form>
+
+                    <div class="divTab">
+                        <table class="table table-bordered  mt-5 ">
+                            <thead style="border: 1px solid lime;">
+                                <tr>
+                                    <th>Prenom</th>
+                                    <th>Nom</th>
+                                    <th class="text-center">Etat financier</th>
+                                </tr>
+                            </thead>
+                            <tbody class=" mytbody">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"></script>
+    <script src="./bundle.js"></script>
+
+
+</body>
+
+</html>
