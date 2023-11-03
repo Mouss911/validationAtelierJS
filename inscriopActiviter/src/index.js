@@ -48,18 +48,13 @@ getDocs(certiesRef).then((snapshot) => {
     snapshot.docs.forEach((doc) => {
         certiesRef.push({ ...doc.data(), id: doc.id });
     });
-
-    certiesRef.forEach((utili) => {
-      let mytbody = document.querySelector('.mytbody');
-      mytbody.innerHTML = localStorage.getItem("stock");
-      let ligne = document.createElement('tr');
-      ligne.innerHTML = `
-      <td >${utili.prenom}</td> <td >${utili.nom}</td> <td>${utili.etat}</td>`;
-      mytbody.appendChild(ligne);
-      localStorage.setItem("stock", mytbody.innerHTML)
-    });
-    console.log(certiesRef);
+   
 });
+
+    
+    // let etat = document.getElementById('etat')
+let mytbody = document.querySelector('.mytbody');
+mytbody.innerHTML = localStorage.getItem("stock");
   
   const myForm = document.querySelector(".myForm")
   
@@ -74,18 +69,17 @@ getDocs(certiesRef).then((snapshot) => {
       type: myForm.type.value,
       dateDajout: serverTimestamp(),
     }).then(() => myForm.reset());
+
+    let prenom = document.getElementById('prenom')
+    let nom = document.getElementById('nom')
+    let ligne = document.createElement('tr');
+    ligne.innerHTML = `
+    <td class="text-start ps-2 border border-1">${prenom.value}</td> <td class="text-start ps-2 border border-1">${nom.value}</td> <td class=" myClick text-center fs-4 opacity-50 border border-1"><i class="fa-regular fa-eye"></i></td>`;
+    
+    mytbody.appendChild(ligne);
+    localStorage.setItem("stock", mytbody.innerHTML)
   });
 
 
 
-let el = document.getElementById("myModal");
-const myButton = document.querySelector('.myButton')
-myButton.addEventListener('click', () => {
-  el.style.display = "block";
-  
-})
 
-span.onclick = function() {
-  el.style.display = "none";
-
-} 
