@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <script src="https://kit.fontawesome.com/3e56bd9026.js" crossorigin="anonymous"></script>
+        <!-- Font Awesome6 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+        <!-- button navbar -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <!-- tooltip -->
+        <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        </script>
+        <link rel="stylesheet" href="sidebar.css">
+        <link rel="stylesheet" href="droit.css">
+        <title>Sidebar</title>
+    </head>
+    
+
+  <body>
+    <main>
+      <div class="container-fluid">
+        <div class="row nav p-2 mt-md-0 d-flex justify-content-between align-items-center">
+            <div class="col-6 col-md-2 logo">
+                <img src="logo.png" alt="">
+            </div>
+            <div class="col-12 col-md-5 mt-3 text-center calendrier">
+                <p>Année scolaire: <span>2022-2023</span></p>                
+                <i class="fa-solid fa-angle-left ms-5 me-5"></i>
+                <i class="fa-solid fa-angle-right ms-5"></i>
+            </div>
+            <div class="col-12 col-md-2 search">
+                <input type="text" name="" id="" placeholder="Rechercher" class="p-3">
+            </div>
+            <div class="col-6 col-md-3 d-flex flex-row compte">
+                <i class="fa-regular fa-bell mt-1"></i>
+                <div class="profil ms-3">
+                    <img src="profil.jpeg" alt="">
+                </div>
+                <a href="#" style="color: #000000;">
+                    <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-2">
+                <div class="menu d-flex d-md-none">
+                       <i class="fa-solid fa-bars" id="menu"></i>
+                </div>
+                <div class="sidebar">
+                   <div class="logo-details" id="btn">
+                   </div>
+                   <ul class="nav-list">
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-table-columns"></i>
+                               <span class="links_name">Accueil</span>
+                           </a>
+                           <span class="tooltip">Accueil</span>
+                       </li>
+                       <li>
+                           <a href="#"><i class="fa-regular fa-user"></i>
+                               <span class="links_name">Personnel</span>
+                           </a>
+                           <span class="tooltip">Personnel</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-chart-pie"></i>
+                               <span class="links_name">Comptablité</span>
+                           </a>
+                           <span class="tooltip">Comptablité</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-graduation-cap"></i>
+                               <span class="links_name">Eléves</span>
+                           </a>
+                           <span class="tooltip">Eléves</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-chalkboard-user"></i>
+                               <span class="links_name">Proffesseurs</span>
+                           </a>
+                           <span class="tooltip">Proffesseurs</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                            <i class="fa-regular fa-address-card"></i>
+                                   <span class="links_name">Autentifications</span>
+                           </a>
+                           <span class="tooltip">Autentifications</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                            <i class="fa-solid fa-people-arrows"></i>
+                               <span class="links_name">Droits</span>
+                           </a>
+                           <span class="tooltip">Droits</span>
+                       </li>
+                   </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 offset-md-1 mt-5 pt-5">
+
+                <!-- TU INSERES ICI TON CODE -->
+                
+            </div>
+        </div>
+    </div> 
+        <section class="container-fluid ba">
+          <p class="fw-bold mt-4">Droits</p>
+          <div class="one">
+            <div class="center container mt-5 d-flex-column">
+              <h1 class="text-center">MERCI DE BIEN LIRE LE REGLEMENT !</h1>
+              <img src="Group 846.png" alt="" class="position-absolute">
+            </div>
+            <div class="left">
+            <i class="bi bi-chevron-right" type="button" id="bouton"></i>
+            </div>
+          </div>
+            
+
+            <div class="center2 container bg-light rounded-4 mt-5 p-5">
+                  <div class="content">
+                    <h3 class="border border-3 border-black text-center">Hygiéne</h3>
+                    <h4>Hygiene</h4>
+                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae <br>
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                    </p>
+
+                    <h4>Sécurité</h4>
+                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae <br>
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                    </p>
+
+                    <h3 class="border border-3 border-black text-center">Accueil et Surveillance</h3>
+                    <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                    </p>
+                    <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus, hic voluptas laboriosam cum maiores aspernatur nemo excepturi. Accusamus accusantium odio, explicabo nam eum aliquid alias assumenda aliquam dolores minus.
+                    </p>
+                    <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                    </p>
+                    <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                    </p>
+                    <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum eius quos at ad, vero possimus veritatis. Cupiditate rerum quos voluptate molestias natus sequi minima dolor cumque cum, non ipsam delectus!
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos molestias repellendus architecto vel, est perferendis numquam id consequatur veritatis quasi, quam quidem tempora accusantium aut quod. Consequuntur vero illum praesentium!
+                    </p>
+                    <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt! 
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero omnis sint in explicabo facere repellendus nulla corporis commodi facilis, accusamus adipisci. Tenetur suscipit sint consectetur quae veritatis cum repudiandae natus!
+                    </p>
+
+                    <h3 class="border border-3 border-black text-center">Sécurité et Protection de l'éléve</h3>
+                    <p class="mb-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Deserunt in ipsam iusto nisi quos reiciendis quidem nostrum repudiandae 
+                      architecto voluptatibus illo hic asperiores voluptate aperiam, veniam dicta nam non? Sunt!
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptatem, natus beatae illo ullam facilis. Tempora, provident odit recusandae in non a impedit fugit unde reprehenderit libero? Rem, quas quis.
+                    </p>
+                  </div>
+            </div>
+            
+
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="droit.js"></script>
+    <script src="sidebar.js"></script>
+  </body>
+</html>
