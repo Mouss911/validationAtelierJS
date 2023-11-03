@@ -22,8 +22,8 @@ table thead, .myBtn{
         width: 25%;
     }
 .myContDiv{
-    margin-left: 5%;
-    margin-right: 5%;
+     margin-left: 5%; 
+     margin-right: 5%; 
 }
 @media only screen and (max-width: 600px) {
     .myInput {
@@ -37,6 +37,10 @@ table thead, .myBtn{
     .myContDiv{
         margin-left: 0;
         margin-right: 0;
+    }
+
+    .my-table{
+        font-size: 12px;
     }
 }
 /*  */
