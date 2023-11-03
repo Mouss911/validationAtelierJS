@@ -38,6 +38,10 @@ table thead, .myBtn{
         margin-left: 0;
         margin-right: 0;
     }
+
+    .my-table{
+        font-size: 12px;
+    }
 }
 /*  */
 .info{
