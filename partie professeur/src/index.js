@@ -99,7 +99,7 @@ function afficherUtilisateur(utilisateurs) {
       <td class="mx-auto text-center p-0 py-2 d-none d-lg-block">${utilisateur.nom}</td>
       <td class="mx-auto text-center p-0">${utilisateur.prenom}</td>
       <td class="mx-auto text-center p-0">${utilisateur.matiere}</td>
-      <td class="mx-auto text-center p-0 d-none d-lg-block">${utilisateur.coordonnee}</td>
+      <td class="mx-auto text-center p-0">${utilisateur.coordonnee}</td>
       <td class="mx-auto text-center p-0 d-none d-lg-block ">${utilisateur.classe}</td>
       <td class="mx-auto text-center p-0">
           <button   class="btn bouton my-1 mx-1 supprimer text-white rounded-circle" data-id=${utilisateur.id}>
