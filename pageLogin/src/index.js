@@ -52,9 +52,7 @@ const auth = getAuth(app);
 //---------------test------------
 //Inscrire l'utilisateur
 const signupForm = document.querySelector('.signup');
-signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
+signupForm.addEventListener('submit', () => {
   const email = signupForm.email.value;
   const password = signupForm.password.value;
 
@@ -63,6 +61,7 @@ signupForm.addEventListener('submit', (e) => {
       console.log('utilisateur cree:', cred.user);
       alert('inscription reussi !');
       signupForm.reset();
+      // window.location.href="../dashbord/dashbord.html";
     })
     .catch((err) => {
       console.log(err.message);

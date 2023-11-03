@@ -9,14 +9,15 @@
     <link rel="stylesheet" href="test.css">
 
     <title>Projet de validation JS</title>
-    <script type="module" defer src="./bundle.js"></script>
+    <script src="../src/admin.js" defer></script>
+    <!-- <script type="module" defer src="./bundle.js"></script> -->
 </head>
 <body>
   <div class="container-form">
     <div class="partie-1">
         <div class="form" id="signup">
             <h1 class="titre-conn">Connectez-vous</h1>
-            <form class="signup">
+            <!-- <form class="signup"> -->
               <!-- <label for="email">email:</label> -->
               <div class="input-a">
                 <i class="ri-at-line"></i>
@@ -29,9 +30,8 @@
                 <div class="vl"></div>
                 <input class="input2" type="password" name="password" placeholder="mot de passe"/>
               </div>
-              <span><a href="/pageLogin/dist/oublier.html">mot de passe oublier ?</a></span><br>
-              <a href="/dashbord/dashbord.html"><button class="button">CONNEXION</button></a>
-            </form> 
+              <button class="button btnConnexion">CONNEXION</button>
+            <!-- </form>  -->
         </div>
     </div>
     <div class="partie-2">
@@ -40,6 +40,6 @@
     
 </div>
     
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.5.2/firebase-app.js" integrity="sha512-+ZbQvyYWP3kj9kNQTLKiGMnf+Iyg4nlXubjuL1tV2g1+oRLHKwjPGzsZix+lV1vArsSNPP/UX0xR473ib0vSnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.5.2/firebase-app.js" integrity="sha512-+ZbQvyYWP3kj9kNQTLKiGMnf+Iyg4nlXubjuL1tV2g1+oRLHKwjPGzsZix+lV1vArsSNPP/UX0xR473ib0vSnQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
