@@ -124,17 +124,23 @@
                         <div class="contenu-modal" id="contenu">
                             <div id="div-afiche"></div>
                             <span class="span" id="span">&times;</span>
-                            <form id="form" class="py-3">
+                            <form id="form" class="py-3 myForm">
                                 <input type="text" id="prenom"  placeholder="Prenom" required><br><br>
                                 <input type="text" id="nom" placeholder="Nom " required><br><br>
                                 <input type="number" id="etat" placeholder="etat " required><br><br>
-                                <select name="classe" class="borde" id="classeSelect">
-                                    <option value="">Classe</option>
-                                    <option value="6eme">6eme</option>
-                                    <option value="5eme">5eme</option>
-                                    <option value="4eme">4eme</option>
-                                    <option value="3eme">3eme</option>
-                                </select><br><br>
+                                <select class="form-select" id="type">
+                                    <option class="dis" disabled selected>Type</option>
+                                    <option value="Inscription Activité">Inscription Activité</option>
+                                    <option value="Inscription Cantine">Inscription Cantine</option>
+                                  </select><br><br>
+                                <select class="form-select" id="classe">
+                                    <option selected>Classe</option>
+                                    <option class="dis" disabled selected>Classe</option>
+                                        <option value="sizieme">6ème</option>
+                                        <option value="cinquieme">5ème</option>
+                                        <option value="quatrieme">4ème</option>
+                                        <option value="troisieme">3ème</option>
+                                  </select><br><br>
                                 <button class="btnAjouter">Ajouter</button>
                             </form>
                 
@@ -144,13 +150,15 @@
                     <form class="d-flex mt-4 justify-content-between flex-wrap">
                         <div class="d-flex ms-5">
                             <p class="me-4 fs-5 fw-bold ">Classes:</p>
-                            <select name="filter" class="border mb-3 col-6 col-lg-2 p-2 bg-white w-100" id="select">
-                                <option value="">Classe</option>
-                                <option value="6eme">6eme</option>
-                                <option value="5eme">5eme</option>
-                                <option value="4eme">4eme</option>
-                                <option value="3eme">3eme</option>
-                            </select>
+                            
+                            <select class="form-select" id="classe">
+                                <option selected>Classe</option>
+                                <option class="dis" disabled selected>Classe</option>
+                                    <option value="sizieme">6ème</option>
+                                    <option value="cinquieme">5ème</option>
+                                    <option value="quatrieme">4ème</option>
+                                    <option value="troisieme">3ème</option>
+                              </select>
                         </div>
                         <div class="divBar">
                             <input type="search" placeholder="Rechercher" class="searchbar" />

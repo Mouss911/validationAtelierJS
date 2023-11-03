@@ -40,46 +40,42 @@ const app = initializeApp(firebaseConfig);
 // Initialize la base de données Firestore
 const db = getFirestore(app);
 
-const utilisateurs = collection(db, 'inscrAutreActivite');
+// const utilisateurs = collection(db, 'inscrAutreActivite');
 const certiesRef = collection(db, 'inscrireActivite');
 
-getDocs(utilisateurs).then((snapshot) => {
-    let utilisateursData = []; 
+getDocs(certiesRef).then((snapshot) => {
+    let certiesRef = []; 
     snapshot.docs.forEach((doc) => {
-        utilisateursData.push({ ...doc.data(), id: doc.id });
+        certiesRef.push({ ...doc.data(), id: doc.id });
     });
-    console.log(utilisateursData);
-});
-  let mytbody = document.querySelector('.mytbody');
-mytbody.innerHTML = localStorage.getItem("stock");
 
-const myBtnAjouter = document.querySelector(".btnAjouter"); 
-myBtnAjouter.addEventListener('click', (e) => {
-  e.preventDefault();
+    certiesRef.forEach((utili) => {
+      let mytbody = document.querySelector('.mytbody');
+      mytbody.innerHTML = localStorage.getItem("stock");
+      let ligne = document.createElement('tr');
+      ligne.innerHTML = `
+      <td >${utili.prenom}</td> <td >${utili.nom}</td> <td>${utili.etat}</td>`;
+      mytbody.appendChild(ligne);
+      localStorage.setItem("stock", mytbody.innerHTML)
+    });
+    console.log(certiesRef);
+});
   
-  const prenom = document.getElementById('prenom').value;
-  const nom = document.getElementById('nom').value;
-  const etat = document.getElementById('etat').value;
+  const myForm = document.querySelector(".myForm")
   
-  addDoc(certiesRef, {
-    prenom,
-    nom,
-    etat,
-    dateDajour: serverTimestamp(),
+  myForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    //Ajouter un nouveau document avec un id généré
+    addDoc(certiesRef, {
+      prenom: myForm.prenom.value,
+      nom: myForm.nom.value,
+      etat: myForm.etat.value,
+      classe: myForm.classe.value,
+      type: myForm.type.value,
+      dateDajout: serverTimestamp(),
+    }).then(() => myForm.reset());
   });
 
-
-
-  let ligne = document.createElement('tr');
-  ligne.innerHTML = `<td>${nom}</td><td>${prenom}</td><td>${etat}</td>`;
-  mytbody.appendChild(ligne);
-
-  document.getElementById('prenom').value = "";
-  document.getElementById('nom').value = "";
-  document.getElementById('etat').value = "";
-
-  localStorage.setItem("stock", mytbody.innerHTML)
-});
 
 
 let el = document.getElementById("myModal");

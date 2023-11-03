@@ -43,6 +43,7 @@ onSnapshot(eleve, (snapshot) => {
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
+        <button type="button" class="btn btn-lg " data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?"><i class="fa-regular fa-eye"></i></button>
         <a href="#" class="btn fs-4 opacity-50 btn-sm modifier"><i class="fa-regular fa-eye"></i></a>
         </td>`;
     list.appendChild(tr);
