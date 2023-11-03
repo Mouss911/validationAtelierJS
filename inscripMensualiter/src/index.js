@@ -53,41 +53,34 @@ getDocs(certiesRef).then((snapshot) => {
     console.log(certiesRef);
 // });
   
-let mytbody = document.querySelector('.mytbody');
-mytbody.innerHTML = localStorage.getItem("stock");
-  const myForm = document.querySelector(".myForm")
+let mytbodyIns = document.querySelector('.mytbodyIns');
+mytbodyIns.innerHTML = localStorage.getItem("stock");
+  const myFormInscrip = document.querySelector(".myFormInscrip")
   
-  myForm.addEventListener('submit', (e) => {
+  myFormInscrip.addEventListener('submit', (e) => {
     e.preventDefault();
     //Ajouter un nouveau document avec un id généré
     addDoc(certiesRef, {
-      prenom: myForm.prenom.value,
-      nom: myForm.nom.value,
-      etat: myForm.etat.value,
-      classe: myForm.classe.value,
-      type: myForm.type.value,
+      prenom: myFormInscrip.prenomIns.value,
+      nom: myFormInscrip.nomIns.value,
+      etat: myFormInscrip.etatIns.value,
+      classe: myFormInscrip.classe.value,
+      type: myFormInscrip.type.value,
       dateDajout: serverTimestamp(),
-    }).then(() => myForm.reset());
+    }).then(() => myFormInscrip.reset());
 
     
-    let prenom = document.getElementById('prenom')
-    let nom = document.getElementById('nom')
+    let prenomIns = document.getElementById('prenomIns')
+    let nomIns = document.getElementById('nomIns')
     // let etat = document.getElementById('etat')
     
       
-      let ligne = document.createElement('tr');
-      ligne.innerHTML = `
-      <td class="text-start ps-2 border border-1">${prenom.value}</td> <td class="text-start ps-2 border border-1">${nom.value}</td> <td class=" myClick text-center fs-4 opacity-50 border border-1"><i class="fa-regular fa-eye"></i></td>`;
-      const  myClick = document.querySelector('.myClick ')
-      myClick.addEventListener('click', () => {
-        console.log("yes");
-      })
-      mytbody.appendChild(ligne);
-      localStorage.setItem("stock", mytbody.innerHTML)
+      let ligneTr = document.createElement('tr');
+      ligneTr.innerHTML = `
+      <td class="text-start ps-2 border border-1">${prenomIns.value}</td> <td class="text-start ps-2 border border-1">${nomIns.value}</td> <td class=" myClick text-center fs-4 opacity-50 border border-1"><i class="fa-regular fa-eye"></i></td>`;
+      
+      mytbodyIns.appendChild(ligneTr);
+      localStorage.setItem("stock", mytbodyIns.innerHTML)
   });
 
  
-
-
-
-

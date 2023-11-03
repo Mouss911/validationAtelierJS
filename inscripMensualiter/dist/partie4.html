@@ -48,7 +48,7 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-1">
+            <div class="col-12 col-md-2">
                 <div class="menu d-flex d-md-none">
                     <i class="fa-solid fa-bars" id="menu"></i>
                 </div>
@@ -107,118 +107,111 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-12 col-md-10 offset-md-1 mt-5 pt-5">
-                <div class="containe mt-3">
-                    <div class="py-4 d-flex justify-content-between">
-                        <h4 class="fw-semibold">Comptabilité</h4>
-                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <i class="fa-solid fa-circle-plus"></i>
-                        </button>
-                    </div>
-                    <div class="d-flex justify-content-between mt-5 flex-wrap">
-                        <p><a href="#">Inscription scolarité</a></p>
-                        <p><a href="partie3.html">Inscription autre activité</a></p>
-                        <p><a href="#">Mansualité</a></p>
-                    </div>
-                    <hr>
+            <div class="col-12 col-md-10  mt-5 pt-5">
+                <section class="" id="inscSco">
 
-                </div>
-                <div class="bg-white  pt-2 myDiv ">
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mensualites</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
+                    <div class="myContDiv">
+                        <div class=" d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark shadow-sm" data-bs-toggle="modal" data-bs-target="#idActiviter">
+                                <i class="fa-solid fa-circle-plus fs-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="inscriptions d-flex justify-content-between flex-wrap py-4 border-bottom">
+                        <a class="text-decoration-none text-black fw-semibold" href="#inscSco">Inscription scolarité</a>
+                        <a class="text-decoration-none text-black fw-semibold opacity-50"
+                            href="inscAutreAct.html">Inscription autres activités</a>
+                        <a class="text-decoration-none text-black fw-semibold opacity-50"
+                            href="page4.html">Mensualité</a>
+                    </div>
+                    <div class="card border-0 shadow rounded-3 my-3">
+                        <div class="card-body">
+                            <form class="d-flex justify-content-between flex-wrap">
+                                <div class="mb-2 d-flex justify-content-between myInput2">
+                                    <label for="classe" class="form-label mt-2 me-2">Classe: </label>
+                                    <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe"
+                                        aria-label="Large select example">
+                                        <option class="dis" disabled selected>Classe</option>
+                                        <option value="sizieme">6ème</option>
+                                        <option value="cinquieme">5ème</option>
+                                        <option value="quatrieme">4ème</option>
+                                        <option value="troisieme">3ème</option>
+                                    </select>
                                 </div>
-                                <div class="modal-body">
-                                    <form class="myForm">
-                                        <div class="mb-3">
-                                            <label for="nom" class="form-label">Nom</label>
-                                            <input type="text" class="form-control shadow-sm" required id="nom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="prenom" class="form-label">Prénom</label>
-                                            <input type="text" class="form-control shadow-sm" required id="prenom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="etatFin" class="form-label">Etat Financier</label>
-                                            <input type="number" class="form-control shadow-sm" required id="etat">
-                                        </div>
-                                        <div class="mb-3">
-                                            <select class="form-select" id="type">
-                                                <option class="dis" disabled selected>Type</option>
-                                                <option value="Mensualites  Activité">Mensualites Activité</option>
-                                                <option value="Mensualites  Cantine">Mensualites Cantine</option>
-                                                <option value="Mensualites ">Mensualites Scolarités</option>
-                                            </select><br><br>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="classe" class="form-label">Classe</label>
-                                            <select class="form-select" id="classe">
-                                                <option class="dis" disabled selected>Classe</option>
-                                                <option value="sizieme">6ème</option>
-                                                <option value="cinquieme">5ème</option>
-                                                <option value="quatrieme">4ème</option>
-                                                <option value="troisieme">3ème</option>
-                                            </select>
-                                        </div>
-                                        <div id="liveAlertPlaceholder"></div>
-                                        <button class="btnAjouter">Enregistrer</button>
-                                    </form>
+                                <div class="mb-2 myInput">
+                                    <input class="form-control shadow w-100 myInput" type="search"
+                                        placeholder="Rechercher" id="country-search" aria-label="Search">
                                 </div>
+                            </form>
+                            <div class="">
+                                <table class="w-100">
+                                    <thead class="">
+                                        <tr class="border border-2">
+                                            <th class="fw-bold text-start py-2 ps-2">Prenom</th>
+                                            <th class="fw-bold text-start py-2 ps-2">Nom</th>
+                                            <th class="fw-bold text-center py-2 ps-2">Etat Financier</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="list" class="mytbodyIns">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
+            </div>
+            </section>
 
-
-                    <form class="d-flex mt-4 justify-content-between flex-wrap">
-                        <div class="d-flex ms-5">
-                            <p class="me-4 fs-5 fw-bold ">Classes:</p>
-
-                            <select class="form-select" id="classe">
-                                <option selected>Classe</option>
-                                <option class="dis" disabled selected>Classe</option>
-                                <option value="sizieme">6ème</option>
-                                <option value="cinquieme">5ème</option>
-                                <option value="quatrieme">4ème</option>
-                                <option value="troisieme">3ème</option>
-                            </select>
+            <!-- Modal -->
+            <div class="modal fade" id="idActiviter" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Mensualites</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="divBar">
-                            <input type="search" placeholder="Rechercher" class="searchbar" />
-                            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24">
-                                <g>
-                                    <path
-                                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
-                                    </path>
-                                </g>
-                            </svg>
+                        <div class="modal-body">
+                            <form class="myFormInscrip">
+                                <div class="mb-3">
+                                    <label for="nom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control shadow-sm" required id="nomIns">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="prenom" class="form-label">Prénom</label>
+                                    <input type="text" class="form-control shadow-sm" required id="prenomIns">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="etatFin" class="form-label">Etat Financier</label>
+                                    <input type="number" class="form-control shadow-sm" required id="etatIns">
+                                </div>
+                                <div class="mb-3">
+                                    <select class="form-select" id="type">
+                                        <option class="dis" disabled selected>Type</option>
+                                        <option value="Mensualites  Activité">Mensualites Activité</option>
+                                        <option value="Mensualites  Cantine">Mensualites Cantine</option>
+                                        <option value="Mensualites ">Mensualites Scolarités</option>
+                                    </select><br><br>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="classe" class="form-label">Classe</label>
+                                    <select class="form-select" id="classe">
+                                        <option class="dis" disabled selected>Classe</option>
+                                        <option value="sizieme">6ème</option>
+                                        <option value="cinquieme">5ème</option>
+                                        <option value="quatrieme">4ème</option>
+                                        <option value="troisieme">3ème</option>
+                                    </select>
+                                </div>
+                                <div id="liveAlertPlaceholder"></div>
+                                <button class="btnAjouter">Enregistrer</button>
+                            </form>
                         </div>
-
-                    </form>
-
-                    <div class="divTab">
-                        <table class="table table-bordered  mt-5 ">
-                            <thead style="border: 1px solid lime;">
-                                <tr>
-                                    <th>Prenom</th>
-                                    <th>Nom</th>
-                                    <th class="text-center">Etat financier</th>
-                                </tr>
-                            </thead>
-                            <tbody class=" mytbody">
-
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
+
         </div>
+    </div>
     </div>
 
 
