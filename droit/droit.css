@@ -30,7 +30,7 @@ body{
     background: linear-gradient(rgba(50, 39, 39, 0.5), rgba(25, 19, 19, 0.5)), url('unnamed 1.png') center center/cover no-repeat;
     border-radius: 10px;
     height: 70vh;
-    width: 50%;
+    width: 100%;
     position: relative;
     text-align: center; 
     display: flex;
@@ -42,7 +42,7 @@ body{
 
 
 .center2{
-    width: 55%;
+    width: 100%;
 }
 
 .center h1 {
@@ -66,12 +66,12 @@ body{
 i{
     color: #00E100;
     position : relative;
-    left: 1050px;
+    left: 800px;
     bottom: 150px;
     font-size: 30px;
 }
 .ba p{
-    margin-left: 370px;
+    margin-left: 15px;
 } 
 
 .content p {
@@ -98,13 +98,13 @@ i{
     }
 
     .center h1 {
-        font-size: 20px;
+        font-size: 16px;
     }
     .ba p{
         margin-left: 0;
     }
     i{
-        left: 300px;
+        left: 280px;
     }
 }
 
