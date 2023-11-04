@@ -1,0 +1,134 @@
+
+.myProfil img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+}
+.infoProfil{
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+/* _____________________ */
+table thead, .myBtn{
+    background-color: #00E100;
+}
+
+.dis{
+    font-size: xx-small;  
+}
+.myInput2 {
+        width: 25%;
+    }
+.myContDiv{
+     margin-left: 5%; 
+     margin-right: 5%; 
+     /* margin: auto; */
+}
+
+.bg-green {
+    background-color: #11e100;
+}
+
+
+input {
+    outline: none;
+}
+
+.liste {
+    font-size: 15px;
+}
+.ajout{
+    width: 50px;
+    height: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .myInput {
+        width: 100%;
+    }
+    .myInput2 {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .myContDiv{
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .my-table{
+        font-size: 12px;
+    }
+}
+/*  */
+.info{
+    margin-top: 25px;
+    width: 100%;
+    height: 1px;
+    background-color: #00000046;
+    text-align: center;
+    color: #00000077;
+}
+.infoGeneral .info{
+    width: 60%;
+}
+.info p{
+    position: relative;
+    top: -25px;
+}
+
+.infoProfil button{
+    margin-left: 25px;
+    padding: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+}
+.bouton {
+    background-color: #504f4f;
+    font-size: 12px;
+}
+
+
+#modifier
+ {
+    display: none;
+}
+
+
+/* Partie Moussa */
+.cage{ border-radius: 10px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);}
+/* Partie Moussa */
+
+@media screen and (max-width: 769px){ 
+    .infoGeneral .info{
+        width: 100%;
+    }
+    .myContDiv{
+        margin-left: 15%; 
+        margin-right: 5%; 
+        /* margin: auto; */
+   }
+      
+} 
+
+@media screen and (max-width: 867px) {
+    .myContDiv{
+        margin-left: 15%; 
+        margin-right: 5%; 
+        /* margin: auto; */
+   }
+}
+
+@media screen and (max-width: 567px) {
+    .liste {
+        font-size: 10px;
+    }
+    .myContDiv{
+        margin-left: 5%; 
+        margin-right: 5%; 
+        /* margin: auto; */
+   }
+}
