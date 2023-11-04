@@ -51,19 +51,23 @@ const db = getFirestore(app);
 const auth = getAuth(app);
 //---------------test------------
 //Inscrire l'utilisateur
-const signupForm = document.querySelector('.signup');
-signupForm.addEventListener('submit', () => {
-  const email = signupForm.email.value;
-  const password = signupForm.password.value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((cred) => {
-      console.log('utilisateur cree:', cred.user);
-      alert('inscription reussi !');
-      signupForm.reset();
-      // window.location.href="../dashbord/dashbord.html";
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  // Votre code ici, y compris l'appel à 'addEventListener'
+  const signupForm = document.querySelector('.formulaireInscr');
+  signupForm.addEventListener('submit', () => {
+    const email = signupForm.email.value;
+    const password = signupForm.password.value;
+  
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((cred) => {
+        console.log('utilisateur cree:', cred.user);
+        alert('inscription reussi !');
+        signupForm.reset();
+        // window.location.href="../dashbord/dashbord.html";
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
 });
+
