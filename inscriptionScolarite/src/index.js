@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 // Importation des  services
 import {
   addDoc,
@@ -8,16 +8,16 @@ import {
   getFirestore,
   onSnapshot,
   serverTimestamp,
-} from 'firebase/firestore';
+} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY',
-  authDomain: 'validation-atelier-js.firebaseapp.com',
-  projectId: 'validation-atelier-js',
-  storageBucket: 'validation-atelier-js.appspot.com',
-  messagingSenderId: '466332062090',
-  appId: '1:466332062090:web:ffbe45ef4a7371a7b5b873',
+  apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
+  authDomain: "validation-atelier-js.firebaseapp.com",
+  projectId: "validation-atelier-js",
+  storageBucket: "validation-atelier-js.appspot.com",
+  messagingSenderId: "466332062090",
+  appId: "1:466332062090:web:ffbe45ef4a7371a7b5b873",
 };
 
 // Initialize Firebase
@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Récupérer la collection
-const eleve = collection(db, 'inscScolarite');
+const eleve = collection(db, "inscScolarite");
 
 getDocs(eleve).then((snapshot) => {});
 
@@ -38,8 +38,8 @@ onSnapshot(eleve, (snapshot) => {
   });
   //   console.log(eleve);
   eleve.forEach((utili) => {
-    const list = document.querySelector('#list');
-    const tr = document.createElement('tr');
+    const list = document.querySelector("#list");
+    const tr = document.createElement("tr");
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
@@ -51,8 +51,8 @@ onSnapshot(eleve, (snapshot) => {
 });
 
 // Enregistrer des données dans le Firebase
-const form = document.querySelector('.addToFirebase');
-form.addEventListener('submit', (e) => {
+const form = document.querySelector(".addToFirebase");
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   //Ajouter un nouveau document avec un id généré
   addDoc(eleve, {
@@ -65,23 +65,23 @@ form.addEventListener('submit', (e) => {
 });
 
 // Alert Après ajout
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
 const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div');
+  const wrapper = document.createElement("div");
   wrapper.innerHTML = [
     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
     `   <div>${message}</div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>',
-  ].join('');
+    "</div>",
+  ].join("");
 
   alertPlaceholder.append(wrapper);
 };
 
-const alertTrigger = document.getElementById('liveAlertBtn');
+const alertTrigger = document.getElementById("liveAlertBtn");
 if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Linscription est effectué avec succès', 'success');
+  alertTrigger.addEventListener("click", () => {
+    appendAlert("Linscription est effectué avec succès", "success");
   });
 }
 
