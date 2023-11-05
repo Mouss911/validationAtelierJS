@@ -108,3 +108,13 @@ i{
     }
 }
 
+#editor-container {
+    height: 700px;
+    overflow: auto;
+    padding: 5px;
+    border: solid 1px #ddd;
+}
+#editor-container:focus {
+    outline: none;
+}
+
