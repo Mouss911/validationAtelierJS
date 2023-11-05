@@ -30,7 +30,8 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
         })
         </script>
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
         <link rel="stylesheet" href="droit.css">
         <link rel="stylesheet" href="sidebare.css">
         
@@ -139,8 +140,8 @@
                     </div>
                       
           
-                      <div id="editor-container" class="center2 container bg-light rounded-4 mt-5 p-5">
-                            <div class="content">
+                      <div class="center2 container bg-light rounded-4 mt-5 p-5">
+                            <div id="editor-container" class="content" contenteditable="true">
                               <h3 class="border border-3 border-black text-center" contenteditable>Hygiéne</h3>
                               <h4 contenteditable>Hygiene</h4>
                               <p class="mb-3" contenteditable>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
@@ -191,6 +192,28 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam voluptatem, natus beatae illo ullam facilis. Tempora, provident odit recusandae in non a impedit fugit unde reprehenderit libero? Rem, quas quis.
                               </p>
                             </div>
+                          <script>
+                                var quill = new Quill('#editor-container', {
+                                    theme: 'snow'
+                                });
+
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    var deltaString = localStorage.getItem('editor-content');
+                                    if (deltaString) {
+                                        var delta = JSON.parse(deltaString);
+                                        quill.setContents(delta);
+                                    }
+                                });
+                            
+                                
+                                quill.on('text-change', function() {
+                                    var delta = quill.getContents();
+                                    var deltaString = JSON.stringify(delta);
+                                    localStorage.setItem('editor-content', deltaString);
+                                });
+                        
+                        
+                        </script>
                       </div>
                       
 
