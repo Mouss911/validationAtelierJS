@@ -1,0 +1,49 @@
+
+.profilGeneral{
+    margin-top: 100px;
+}
+.myProfil img{
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+}
+.infoProfil{
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.info{
+    margin-top: 25px;
+    width: 100%;
+    height: 1px;
+    background-color: #00000046;
+    text-align: center;
+    color: #00000077;
+}
+.infoGeneral .info{
+    width: 60%;
+}
+.info p{
+    position: relative;
+    top: -25px;
+}
+
+.infoProfil button{
+    margin-left: 25px;
+    padding: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+}
+
+@media screen and (max-width: 767px){ 
+    .infoGeneral .info{
+        width: 100%;
+    }  
+
+    .profilGeneral{
+        margin-top: 200px;
+    }
+} 
