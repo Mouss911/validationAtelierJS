@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 
 // import { collection, updateDoc, getDocs, doc, deleteDoc, onSnapshot, getFirestore, addDoc } from "firebase/firestore";
 
-
+import { nombreProfesseur, nombreEmployer, nombreAssocie } from "./personnel.js";
 import { proff, gestionProfesseurs, ajouterProfesseur, modifierProfesseur, supprimerProfesseur,  } from './professeurs.js';
 import { gestionEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';
 
@@ -18,9 +18,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+
+/*******PARTIE PROFESSEURS ET EMPLOYER******/
 let id
-
-
 
 gestionProfesseurs();
 gestionEmployer()
@@ -166,5 +167,15 @@ btnModifier.addEventListener("click", (e) => {
    } 
  });
   
+
+/*******PARTIE ACCUEIL**********/
+
+
+
+
+
+nombreProfesseur();
+nombreEmployer();
+nombreAssocie()
 
 
