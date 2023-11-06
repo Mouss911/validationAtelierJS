@@ -182,7 +182,7 @@
                                 <form class="d-flex justify-content-between flex-wrap">
                                     <div class="mb-2 d-flex justify-content-between myInput2">
                                         <label for="classe" class="form-label mt-2 me-2">Classe: </label>
-                                        <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe" aria-label="Large select example">
+                                        <select class="form-select form-select-lg mb-3 fs-6 p-1 shadow" id="classe" aria-label="Large select example">
                                             <option class="dis" disabled selected>Classe</option>
                                             <option value="sizieme">6ème</option>
                                             <option value="cinquieme">5ème</option>
@@ -283,7 +283,7 @@
                         <form class="d-flex justify-content-between flex-wrap">
                             <div class="mb-2 d-flex justify-content-between myInput2">
                                 <label for="classe" class="form-label mt-2 me-2">Classe: </label>
-                                <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe"
+                                <select class="form-select form-select-lg mb-3 fs-6 p-1 shadow" id="classe"
                                     aria-label="Large select example">
                                     <option class="dis" disabled selected>Classe</option>
                                     <option value="sizieme">6ème</option>
@@ -355,14 +355,13 @@
                                         <option value="troisieme">3ème</option>
                                     </select>
                                 </div>
-                                <div id="liveAlertPlaceholder"></div>
                                 <button class="btn myBtn">Enregistrer</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Ladji Section 2 Mensualité -->
             <section class="myContDiv mb-5" id="mensualite">
                 <div class="inscriptions d-flex justify-content-between flex-wrap py-4 border-bottom">
@@ -383,7 +382,7 @@
                         <form class="d-flex justify-content-between flex-wrap">
                             <div class="mb-2 d-flex justify-content-between myInput2">
                                 <label for="classe" class="form-label mt-2 me-2">Classe: </label>
-                                <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe"
+                                <select class="form-select form-select-lg mb-3 fs-6 p-1 shadow" id="classe"
                                     aria-label="Large select example">
                                     <option class="dis" disabled selected>Classe</option>
                                     <option value="sizieme">6ème</option>
@@ -454,7 +453,6 @@
                                         <option value="troisieme">3ème</option>
                                     </select>
                                 </div>
-                                <div id="liveAlertPlaceholder"></div>
                                 <button class="btnAjouter">Enregistrer</button>
                             </form>
                         </div>
@@ -477,30 +475,12 @@
                                     <th scope="col" class="px-1">Montant</th>
                                 </tr>
                               </thead>
-                              <tbody id="revenue">
-                                <!-- <tr >
-                                  <td class="border border-1">10/10/2020</td>
-                                  <td class="text-center">Inscription Scolarité</td>
-                                  <td class="text-center border border-1">Moussa Ndiaye</td>
-                                  <td class="border border-1">45000 Fcfa</td>
-                                </tr>
-                                <tr>
-                                  <td class="border border-1">10/10/2020</td>
-                                  <td class="text-center border border-1">Inscription Cantine</td>
-                                  <td class="text-center border border-1">Absa Fall</td>
-                                  <td class="border border-1">45000 Fcfa</td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3" class="border border-1"><b>TOTAL</b></td>
-                                  <td class="border border-1"> <b>45000 Fcfa</b></td>
-                                </tr> -->
-                              </tbody>
+                              <tbody id="revenue"></tbody>
+                              <tfoot id="total" class="border-0"></tfoot>
                             </table>
-                        
                     </div>
                 </div>
               </section>
-
             </div>
         </div>
     </div> 
