@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 
-import { onSnapshot, getFirestore, collection } from "firebase/firestore";
+import { onSnapshot, getFirestore, collection, doc } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
   authDomain: "validation-atelier-js.firebaseapp.com",
@@ -30,7 +30,7 @@ onSnapshot(professeurs, (snapshot) => {
 
 // recuperer collection employer
 const employer = collection(db, "employer");
-const nombreEmployer = document.getElementById('empl')
+const nombreEmployer = document.getElementById('empl');
 
 onSnapshot(employer, (snapshot) => {
   let employer = [];
@@ -38,10 +38,22 @@ onSnapshot(employer, (snapshot) => {
     employer.push({ ...doc.data(), id: doc.id});
     
   })
-  console.log({employer});
+   console.log({employer});
   nombreEmployer.innerHTML = employer.length
 })
+// recuperer la collection associe
 
+const associe = collection(db, "associe");
+const nombreAssocie = document.getElementById('empoie');
+onSnapshot(associe, (snapshot) => {
+  let associe = [];
+  snapshot.docs.forEach((doc) => {
+    associe.push({ ...doc.data(), id: doc.id});
+  })
+  console.log(associe);
+  nombreAssocie.innerHTML = associe.length
+
+})
 
 
 
