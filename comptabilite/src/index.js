@@ -37,8 +37,9 @@ onSnapshot(eleve, (snapshot) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
   //   console.log(eleve);
+  const list = document.querySelector('#list');
+  list.innerHTML = '';
   eleve.forEach((utili) => {
-    const list = document.querySelector('#list');
     const tr = document.createElement('tr');
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
@@ -60,6 +61,7 @@ form.addEventListener('submit', (e) => {
     nom: form.nom.value,
     prenom: form.prenom.value,
     etatFin: form.etatFin.value,
+    type: form.type.value,
     classe: form.classe.value,
     dateDajout: serverTimestamp(),
   }).then(() => form.reset());
@@ -96,9 +98,10 @@ onSnapshot(certiesRef, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef.push({ ...doc.data(), id: doc.id });
   });
+  const list = document.querySelector('.mytbody');
+  list.innerHTML = '';
   // console.log(certiesRef);
   certiesRef.forEach((utili) => {
-    const list = document.querySelector('.mytbody');
     const tr = document.createElement('tr');
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
@@ -135,9 +138,10 @@ onSnapshot(certiesRef2, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef2.push({ ...doc.data(), id: doc.id });
   });
+  const list = document.querySelector('.mytbodyIns');
+  list.innerHTML = '';
   // console.log(certiesRef2);
   certiesRef2.forEach((utili) => {
-    const list = document.querySelector('.mytbodyIns');
     const tr = document.createElement('tr');
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>

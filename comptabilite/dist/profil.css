@@ -25,7 +25,7 @@ table thead, .myBtn{
      margin-left: 2.5%; 
      margin-right: 2.5%; 
 }
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .myInput {
         width: 100%;
     }
@@ -43,6 +43,13 @@ table thead, .myBtn{
         font-size: 12px;
     }
 }
+@media screen and (min-width: 767px) and (max-width: 1100px) {
+    .myContDiv{
+        margin-left: 15%;
+        margin-right: 10%;
+        
+    }
+  }
 /*  */
 .info{
     margin-top: 25px;
