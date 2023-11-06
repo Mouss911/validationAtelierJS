@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD:Accueil/pageLogin/package.json
   "name": "Projet_validation_js",
+=======
+  "name": "validation-javascript",
+>>>>>>> 2cbb298d9dab33370fffa5b7a3750d0f5be4d9cb:personnels/professeurs/package.json
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
