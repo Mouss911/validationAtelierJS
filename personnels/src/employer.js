@@ -60,7 +60,7 @@ export function ajouterEmployer(formEmployer) {
   }).then(() => formEmployer.reset());
 }
 
-export function modifierEmployer(id, nouveauEmployer) {
+export function modifierEmployer(id, nouveauEmployer,) {
     const db = getFirestore();
     const employer = collection(db, "employer");
     const docRef = doc(employer, id);
