@@ -44,7 +44,7 @@ const domaine = document.getElementById("domaine");
 const coordonnee = document.getElementById("coordonnee");
 const classe = document.getElementById("classe");
 const container = document.getElementById("container");
-console.log(formEmployer);
+console.log(proff);
 
 btnAjouter.addEventListener("click", (e) => {
   e.preventDefault();
