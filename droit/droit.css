@@ -117,4 +117,9 @@ i{
 #editor-container:focus {
     outline: none;
 }
-
+#editor-container h2 {
+    border: 1px solid black; 
+    text-align: center;     
+    padding: 10px;         
+    margin: 10px 0;        
+}
