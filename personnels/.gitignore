@@ -1,1 +1,5 @@
+<<<<<<< HEAD:personnels/.gitignore
 /node_modules 
+=======
+/nodes_modules
+>>>>>>> 2429de37950953147c4198c575af57ce72fbdba9:personnels/professeurs/.gitignore
