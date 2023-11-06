@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore, onSnapshot, } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,6 +27,15 @@ const db = getFirestore(app)
 const associe = collection(db, "associe");
 
 console.log(associe);
+onSnapshot(associe, (snapshot) =>{
+    let associe = [];
+    snapshot.docs.forEach((doc) => {
+        associe.push({...doc.data(), id: doc.id});
+    });
+    console.log(associe);
+})
+
+
 const container = document.querySelector('.logo-entreprise')
 getDocs(associe).then((snapshat) => {
     let associe = [];
@@ -44,6 +53,19 @@ getDocs(associe).then((snapshat) => {
     });
 });
 
+const imgSection = document.querySelector('.image-section');
+const submitBtn = document.querySelector('.submit-btn');
+const imgProgressIndincator = document.querySelector('.img-progress-Indicator')
+const ImagePreview = document.querySelector(".image-preview")
+const inputImage = document.querySelector(".image-input")
+
+ImagePreview.style.display = "none";
+
+
+inputImage.addEventListener('change', async(e) =>{
+    const file = e.target.files[0];
+    submitBtn.disabled = true ;
+})
 
 const addToFirebase = document.querySelector(".addToFirebase");
 console.log(addToFirebase);
