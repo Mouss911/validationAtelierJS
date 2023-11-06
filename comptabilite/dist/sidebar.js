@@ -25,6 +25,10 @@ menu.addEventListener('click', () => {
 });
 
 // PARTIE MOUSSA
+dateJour = new Date().toLocaleDateString();
+document.getElementById("dateJour").innerHTML = dateJour;
+document.getElementById("dateJour2").innerHTML = dateJour;
+
 const barCanvas = document.getElementById('barCanvas');
 
 const barChart = new Chart(barCanvas, {
