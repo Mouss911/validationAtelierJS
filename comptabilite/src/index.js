@@ -60,22 +60,20 @@ onSnapshot(eleve, (snapshot) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
   eleve.forEach((utili) => {
-    const revenue = document.getElementById("revenue")
+    const revenue = document.getElementById('revenue');
 
-    let trbody = document.createElement('tr')
-
-   
+    let trbody = document.createElement('tr');
 
     trbody.innerHTML = `
           <td class="border border-1">${utili.Timestamp}</td>
           <td class="text-center">Inscription Scolarité</td>
           <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
           <td class="border border-1">${utili.etatFin} Fcfa</td>
-    `
+    `;
     console.log(utili.dateDajout);
-    revenue.append(trbody)
-  })
-})
+    revenue.append(trbody);
+  });
+});
 
 // Enregistrer des données dans le Firebase
 const form = document.querySelector('.addToFirebase');
