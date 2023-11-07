@@ -25,7 +25,7 @@ const profilPath = '/dist/profil.html';
 
 if (currentPath === inscriptionPath) {
   // Vous êtes sur la page d'inscription
-
+  console.log("Vous êtes sur la page d'inscription")
   function handleRegistration(event) {
     event.preventDefault();
 
@@ -72,6 +72,7 @@ if (currentPath === inscriptionPath) {
 
   const registrationForm = document.getElementById('registration-form');
   registrationForm.addEventListener('submit', handleRegistration);
+
 }else if (currentPath === connexionPath) {
   function handleLogin(event) {
     event.preventDefault();
