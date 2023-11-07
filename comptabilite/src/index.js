@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
+
 // Importation des  services
 import {
   addDoc,
@@ -31,7 +32,7 @@ const eleve = collection(db, 'inscScolarite');
 getDocs(eleve).then((snapshot) => {});
 
 // Realtime Update
-onSnapshot(eleve, (snapshot) => {
+onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
@@ -50,6 +51,7 @@ onSnapshot(eleve, (snapshot) => {
         </td>`;
     list.appendChild(tr);
   });
+  console.log(eleve);
 });
 
 //recuperer les données et les afficher dans revenue
