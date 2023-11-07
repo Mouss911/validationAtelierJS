@@ -36,7 +36,6 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  //   console.log(eleve);
   const list = document.querySelector('#list');
   list.innerHTML = '';
   eleve.forEach((utili) => {
@@ -55,6 +54,7 @@ onSnapshot(eleve, (snapshot) => {
 });
 
 //recuperer les données(nom, prenom, date) et les afficher dans revenue
+//___________________________________________________
 //partie pape cheikh
 
 // var database = firebase.database()
@@ -65,11 +65,11 @@ onSnapshot(eleve, (snapshot) => {
     eleve.push({ ...doc.data(), id: doc.id });
     // console.log(snapshot);
   });
+  let totalEtatFin = 0
   eleve.forEach((utili) => {
     const revenue = document.getElementById('revenue');
     let trbody = document.createElement('tr');
-    console.log(utili);
-
+    // console.log(utili);
     trbody.innerHTML = `
     <td class="border border-1">${utili.dateDajout
       .toDate()
@@ -79,28 +79,21 @@ onSnapshot(eleve, (snapshot) => {
     <td class="border border-1">${utili.etatFin} Fcfa</td>
     `;
     revenue.appendChild(trbody);
+    
     //Calcule du revenue total
-    totalEtatFin += parseInt(utili.etatFin);
+    totalEtatFin += parseInt(utili.etatFin)
   });
+  const total = document.getElementById("total")
+  let trfoot = document.createElement('tr')
+  trfoot.innerHTML = `
+  <td colspan="3"><b>Total</b></td>
+  <td><b>${totalEtatFin} Fcfa </b></td>
+  `
+  total.appendChild(trfoot)
+console.log(totalEtatFin);
+
 });
-//recuperation types
-// Obtenez une référence à votre base de données Firestore
-// var db1 = firebase.firestore();
 
-// Utilisez la référence pour obtenir les données en fonction de l'id
-
-// console.log(eleve);
-
-// var type = "votre_id";
-// var collectionRef = db.collection("inscrireActivite");
-// var query = collectionRef.where("id", "==", id);
-
-// query.get().then(function(querySnapshot) {
-//   querySnapshot.forEach(function(doc) {
-//     // doc contient les données correspondantes à votre requête
-//     console.log(doc.data());
-//   });
-// });
 
 // Enregistrer des données dans le Firebase
 const form = document.querySelector('.addToFirebase');
