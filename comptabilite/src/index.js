@@ -69,16 +69,20 @@ onSnapshot(eleve, (snapshot) => {
   revenue.innerHTML = '';
   let totalEtatFin = 0;
   eleve.forEach((utili) => {
-    const revenue = document.getElementById('revenue');
-    let trbody = document.createElement('tr');
+    const revenue = document.getElementById("revenue");
+    let trbody = document.createElement("tr"); 
+    console.log(utili);
+
     trbody.innerHTML = `
-    <td class="border border-1">date</td>
+    <td class="border border-1">${utili.dateDajout.toDate().toLocaleDateString()}</td>
     <td class="text-center">${utili.type}</td>
     <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
     <td class="border border-1">${utili.etatFin} Fcfa</td>
     `;
     revenue.appendChild(trbody);
-    totalEtatFin += parseInt(utili.etatFin);
+    //Calcule du revenue total
+    totalEtatFin+= parseInt(utili.etatFin)
+
   });
   total.innerHTML = '';
   let trfoot = document.createElement('tr');
