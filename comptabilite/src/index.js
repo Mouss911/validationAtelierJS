@@ -41,7 +41,9 @@ onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
   const list = document.querySelector('#list');
   list.innerHTML = '';
   eleve.forEach((utili) => {
+    const list = document.querySelector('#list');
     const tr = document.createElement('tr');
+
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
@@ -54,27 +56,37 @@ onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
   console.log(eleve);
 });
 
-//recuperer les données et les afficher dans revenue
+//recuperer les données(nom, prenom, date) et les afficher dans revenue
+//partie pape cheikh
 
 onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
+  const total = document.getElementById('total');
+  // console.log(eleve[0].etatFin);
+  revenue.innerHTML = '';
+  let totalEtatFin = 0;
   eleve.forEach((utili) => {
     const revenue = document.getElementById('revenue');
-
     let trbody = document.createElement('tr');
-
     trbody.innerHTML = `
-          <td class="border border-1">${utili.Timestamp}</td>
-          <td class="text-center">Inscription Scolarité</td>
-          <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
-          <td class="border border-1">${utili.etatFin} Fcfa</td>
+    <td class="border border-1">date</td>
+    <td class="text-center">${utili.type}</td>
+    <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
+    <td class="border border-1">${utili.etatFin} Fcfa</td>
     `;
-    console.log(utili.dateDajout);
-    revenue.append(trbody);
+    revenue.appendChild(trbody);
+    totalEtatFin += parseInt(utili.etatFin);
   });
+  total.innerHTML = '';
+  let trfoot = document.createElement('tr');
+  trfoot.innerHTML = `
+  <td colspan="3" class="border border-1"><b>TOTAL</b></td>
+  <td class="border border-1"> <b>${totalEtatFin} Fcfa</b></td>
+  `;
+  total.appendChild(trfoot);
 });
 
 // Enregistrer des données dans le Firebase
@@ -127,7 +139,9 @@ onSnapshot(certiesRef, (snapshot) => {
   list.innerHTML = '';
   // console.log(certiesRef);
   certiesRef.forEach((utili) => {
+    const list = document.querySelector('.mytbody');
     const tr = document.createElement('tr');
+
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
@@ -167,7 +181,9 @@ onSnapshot(certiesRef2, (snapshot) => {
   list.innerHTML = '';
   // console.log(certiesRef2);
   certiesRef2.forEach((utili) => {
+    const list = document.querySelector('.mytbodyIns');
     const tr = document.createElement('tr');
+
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
