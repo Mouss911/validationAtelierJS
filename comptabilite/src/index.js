@@ -67,24 +67,20 @@ onSnapshot(eleve, (snapshot) => {
   });
   eleve.forEach((utili) => {
     const revenue = document.getElementById('revenue');
-    const total = document.getElementById('total');
-
     let trbody = document.createElement('tr');
-    let trfoot = document.createElement('tr');
+    console.log(utili);
 
     trbody.innerHTML = `
-          <td class="border border-1">date</td>
-          <td class="text-center">${utili.type}</td>
-          <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
-          <td class="border border-1">${utili.etatFin} Fcfa</td>
+    <td class="border border-1">${utili.dateDajout
+      .toDate()
+      .toLocaleDateString()}</td>
+    <td class="text-center">${utili.type}</td>
+    <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
+    <td class="border border-1">${utili.etatFin} Fcfa</td>
     `;
-    trfoot.innerHTML = `
-          <td colspan="3" class="border border-1"><b>TOTAL</b></td>
-          <td class="border border-1"> <b>45000 Fcfa</b></td>
-    `;
-
-    revenue.append(trbody);
-    total.append(trfoot);
+    revenue.appendChild(trbody);
+    //Calcule du revenue total
+    totalEtatFin += parseInt(utili.etatFin);
   });
 });
 //recuperation types
