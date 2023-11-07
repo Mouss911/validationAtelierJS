@@ -58,7 +58,6 @@ onSnapshot(eleve, (snapshot) => {
 //recuperer les données(nom, prenom, date) et les afficher dans revenue
 //partie pape cheikh
 
-
 onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
@@ -80,6 +79,7 @@ onSnapshot(eleve, (snapshot) => {
     <td class="border border-1">${utili.etatFin} Fcfa</td>
     `;  
     revenue.appendChild(trbody);
+    //Calcule du revenue total
     totalEtatFin+= parseInt(utili.etatFin)
   });
   total.innerHTML=''
