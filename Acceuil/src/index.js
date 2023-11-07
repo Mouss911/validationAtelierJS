@@ -141,6 +141,7 @@ if (currentPath === inscriptionPath) {
   const loginForm = document.getElementById("signup");
   loginForm.addEventListener("submit", handleLogin);
 } else if (currentPath === profilPath) {
+  // recuperation des donnée de l'utilisateur
   handleProfile();
   console.log("page profil");
 }
