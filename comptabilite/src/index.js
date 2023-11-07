@@ -36,8 +36,10 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
+  eleve.sort((a, b) => b.dateDajout - a.dateDajout);
   const list = document.querySelector('#list');
   list.innerHTML = '';
+
   eleve.forEach((utili) => {
     const list = document.querySelector('#list');
     const tr = document.createElement('tr');
@@ -63,37 +65,38 @@ onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
-    // console.log(snapshot);
   });
-  let totalEtatFin = 0
+  let totalEtatFin = 0;
+  const revenue = document.getElementById('revenue');
+  revenue.innerHTML = '';
   eleve.forEach((utili) => {
-    const revenue = document.getElementById('revenue');
     let trbody = document.createElement('tr');
-    // console.log(utili);
     trbody.innerHTML = `
     <td class="border border-1">${utili.dateDajout
       .toDate()
       .toLocaleDateString()}</td>
-    <td class="text-center">${utili.type}</td>
-    <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
-    <td class="border border-1">${utili.etatFin} Fcfa</td>
-    `;
+      <td class="text-center">${utili.type}</td>
+      <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
+      <td class="border border-1">${utili.etatFin.toLocaleString("en-US")} Fcfa</td>
+      `;
     revenue.appendChild(trbody);
-    
+
     //Calcule du revenue total
-    totalEtatFin += parseInt(utili.etatFin)
+    totalEtatFin += parseInt(utili.etatFin);
   });
-  const total = document.getElementById("total")
-  let trfoot = document.createElement('tr')
+
+  const total = document.getElementById('total');
+  total.innerHTML = '';
+  let trfoot = document.createElement('tr');
   trfoot.innerHTML = `
   <td colspan="3"><b>Total</b></td>
-  <td><b>${totalEtatFin} Fcfa </b></td>
-  `
-  total.appendChild(trfoot)
-console.log(totalEtatFin);
-
+  <td><b>${totalEtatFin.toLocaleString("en-US")} Fcfa </b></td>
+  `;
+  total.appendChild(trfoot);
+  total.appendChild(trfoot);
+  const revTotal = document.getElementById('revenuTotal')
+  revTotal.innerHTML = `${totalEtatFin.toLocaleString("en-US")} <span class="fw-bold">FCFA</span>`
 });
-
 
 // Enregistrer des données dans le Firebase
 const form = document.querySelector('.addToFirebase');
@@ -141,6 +144,7 @@ onSnapshot(certiesRef, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef.push({ ...doc.data(), id: doc.id });
   });
+  certiesRef.sort((a, b) => b.dateDajout - a.dateDajout);
   const list = document.querySelector('.mytbody');
   list.innerHTML = '';
   // console.log(certiesRef);
@@ -183,8 +187,10 @@ onSnapshot(certiesRef2, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef2.push({ ...doc.data(), id: doc.id });
   });
+  certiesRef2.sort((a, b) => b.dateDajout - a.dateDajout);
   const list = document.querySelector('.mytbodyIns');
   list.innerHTML = '';
+
   // console.log(certiesRef2);
   certiesRef2.forEach((utili) => {
     const list = document.querySelector('.mytbodyIns');
