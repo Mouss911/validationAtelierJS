@@ -20,12 +20,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-<<<<<<< HEAD
-/*    PARTIE PROFESSEUS ET EMPLOYER*/
-=======
 
 /*******PARTIE PROFESSEURS ET EMPLOYER******/
->>>>>>> d3cb05515e9e0f5bd581a4ce80c1bd15403d5d52
+
 let id
 
 gestionProfesseurs();
@@ -175,7 +172,6 @@ btnModifier.addEventListener("click", (e) => {
  });
   
 
-<<<<<<< HEAD
 /* PARTIE ASSOCIER */
 
 gestionAssocie();
@@ -185,7 +181,6 @@ gestionAssocie();
   console.log(formAssocie);
   ajouterAssocier(formAssocie);
 })
-=======
 /*******PARTIE ACCUEIL**********/
 
 
@@ -195,6 +190,5 @@ gestionAssocie();
 nombreProfesseur();
 nombreEmployer();
 nombreAssocie()
->>>>>>> d3cb05515e9e0f5bd581a4ce80c1bd15403d5d52
 
 
