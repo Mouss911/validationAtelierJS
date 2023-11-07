@@ -77,7 +77,7 @@ onSnapshot(eleve, (snapshot) => {
       .toLocaleDateString()}</td>
       <td class="text-center">${utili.type}</td>
       <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
-      <td class="border border-1">${utili.etatFin} Fcfa</td>
+      <td class="border border-1">${utili.etatFin.toLocaleString("en-US")} Fcfa</td>
       `;
     revenue.appendChild(trbody);
 
@@ -90,9 +90,12 @@ onSnapshot(eleve, (snapshot) => {
   let trfoot = document.createElement('tr');
   trfoot.innerHTML = `
   <td colspan="3"><b>Total</b></td>
-  <td><b>${totalEtatFin} Fcfa </b></td>
+  <td><b>${totalEtatFin.toLocaleString("en-US")} Fcfa </b></td>
   `;
   total.appendChild(trfoot);
+  total.appendChild(trfoot);
+  const revTotal = document.getElementById('revenuTotal')
+  revTotal.innerHTML = `${totalEtatFin.toLocaleString("en-US")} <span class="fw-bold">FCFA</span>`
 });
 
 // Enregistrer des données dans le Firebase
