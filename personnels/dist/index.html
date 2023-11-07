@@ -88,11 +88,51 @@
           />
         </div>
         <div class="col-6 col-md-3 d-flex flex-row compte">
-          <i class="fa-regular fa-bell mt-1"></i>
-          <div class="profil ms-3">
-            <img src="./images/Mask Group (7).png" alt="" />
+          <i class="fa-regular fa-bell mt-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+
+          <div class="offcanvas offcanvas-sm offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications</h5>
+              <i class="fa-solid fa-gear" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+            </div>
+            <div class="offcanvas-body">
+              <div class="container d-flex align-items-center justify-content-center h-100">
+                <div class="row  h-100 d-flex align-items-center justify-content-center">
+                  <div class="col-md-12 text-center d-flex align-items-center justify-content-center h-100">
+                    <p>Vous n'avez pas de notification</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
+
+          <div class="profil ms-3">
+            <img src="./images/Group 800.png" alt="" />
+          </div>
+          <div class="btn-group">
+            <i class="fa-solid  ms-3 mt-1 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            
+            <ul class="dropdown-menu rounded-5 pt-0 pb-4">
+              <div class="d-flex flex-column py-4 mb-2 justify-content-center gy-5 align-items-center divProfile">
+                <div class="col-6 col-md-2  mx-auto my-2 mt-3 imageDivProfile">
+                  <img src="./images/Group 800.png" alt="" />
+               </div>
+               <h6 class="text-center mb-0 fst-italic">Moustapha Djigo</h6>
+               <p class="mt-0 pt-0 text-light">Proviseur</p>
+              </div>
+              <li><a class="dropdown-item   mt-3 " href="#">
+                <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
+                 Voir le profil
+                </button></a></li>
+              <li><a class="dropdown-item" href="#">
+                <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
+                  Deconnexion
+                </button></a></li>
+              <!-- <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li> -->
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -321,52 +361,6 @@
                             </th>
                         </tr>
                     </thead>
-                      <!-- <thead class="bg-green ">
-                        <tr class="">
-                          <th
-                            class=" d-none d-lg-block"
-                            scope="col"
-                            class="text-center"
-                          >
-                            Nom
-                          </th>
-                          <th
-                            class="d-none d-lg-block"
-                            scope="col"
-                            class="text-center"
-                          >
-                            Prenom
-                          </th>
-                          <th
-                            class=""
-                            scope="col"
-                            class="text-center"
-                          >
-                            Matieres
-                          </th>
-                          <th
-                            class=""
-                            scope="col"
-                            class="text-center"
-                          >
-                            Coordonnees
-                          </th>
-                          <th
-                            class="d-none d-lg-block"
-                            scope="col"
-                            class="text-center"
-                          >
-                            classes
-                          </th>
-                          <th
-                            class=""
-                            scope="col"
-                            class=""
-                          >
-                            Actions
-                          </th>
-                        </tr>
-                      </thead> -->
                       <tbody id="container" class=""> 
                       
 
@@ -635,7 +629,7 @@
                   <h1 class="text-center liste mb-3 mb-lg-0">
                     Liste de tous les employés de l'établissement
                   </h1>
-                  <form action="" class="col-12 col-md-6 col-lg-4">
+                  <form id="rechercheEmployer" action="" class="col-12 col-md-6 col-lg-4">
                     <div
                       class="shadow d-flex mb-lg-0 align-items-center p-1 rounded-3 ps-2"
                     >
