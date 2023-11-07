@@ -5,13 +5,23 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDGasjJ8iYoqmryBUugt7MQAjD5NlZWB5I",
-  authDomain: "fir-demo-47a73.firebaseapp.com",
-  projectId: "fir-demo-47a73",
-  storageBucket: "fir-demo-47a73.appspot.com",
-  messagingSenderId: "665908816987",
-  appId: "1:665908816987:web:7cc4908d8319e36541637e"
+  apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
+  authDomain: "validation-atelier-js.firebaseapp.com",
+  databaseURL: "https://validation-atelier-js-default-rtdb.firebaseio.com",
+  projectId: "validation-atelier-js",
+  storageBucket: "validation-atelier-js.appspot.com",
+  messagingSenderId: "466332062090",
+  appId: "1:466332062090:web:ffbe45ef4a7371a7b5b873"
 };
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyDGasjJ8iYoqmryBUugt7MQAjD5NlZWB5I",
+//   authDomain: "fir-demo-47a73.firebaseapp.com",
+//   projectId: "fir-demo-47a73",
+//   storageBucket: "fir-demo-47a73.appspot.com",
+//   messagingSenderId: "665908816987",
+//   appId: "1:665908816987:web:7cc4908d8319e36541637e"
+// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -45,6 +55,8 @@ if (currentPath === inscriptionPath) {
         const user = userCredential.user;
 
         const userData = {
+          email: email,
+          password: password,
           nom: nom,
           prenom: prenom,
           status: status,
@@ -102,26 +114,45 @@ if (currentPath === inscriptionPath) {
   const loginForm = document.getElementById('signup');
   loginForm.addEventListener('submit', handleLogin);
 }else if (currentPath === profilPath) {
-  console.log("page profil");
+  
+  console.log("Vous êtes sur la page profil");
   // Vous êtes sur la page de profil
-  console.log('auth.currentUser:', auth.currentUser);
-  // Assurez-vous que l'utilisateur est connecté avant d'afficher les informations
-  if (auth.currentUser) {
-    // Récupérez l'utilisateur connecté
-    const user = auth.currentUser;
 
-    // Affichez les informations de l'utilisateur sur la page
-    const userNameElement = document.getElementById('user-name');
-    const userEmailElement = document.getElementById('user-email');
+  database = firebase.database();
 
-    if (userNameElement && userEmailElement) {
-      console.log('userNameElement:', userNameElement);
-      console.log('userEmailElement:', userEmailElement);
+  let ref = database.ref('utilisateurs');
+  ref.on('value', gotData, errData);
 
-      // Mettez à jour les éléments HTML avec les informations de l'utilisateur
-      userNameElement.innerHTML = user.displayName || 'Nom inconnu';
-      userEmailElement.textContent = user.email || 'Email inconnu';
+  function gotData(data) {
+    console.log(data.val());
+    let users = data.val();
+    let keys = Object.keys(users);
+    console.log(keys);
+    for (let i = 0; i < keys.length; i++) {
+      let k = keys[i];
+      let nomUser = users[k].nomUser;
+      console.log(nomUser);
     }
   }
+
+  // console.log('auth.currentUser:', auth.currentUser);
+  // // Assurez-vous que l'utilisateur est connecté avant d'afficher les informations
+  // if (auth.currentUser) {
+  //   // Récupérez l'utilisateur connecté
+  //   const user = auth.currentUser;
+
+  //   // Affichez les informations de l'utilisateur sur la page
+  //   const userNameElement = document.getElementById('user-name');
+  //   const userEmailElement = document.getElementById('user-email');
+
+  //   if (userNameElement && userEmailElement) {
+  //     console.log('userNameElement:', userNameElement);
+  //     console.log('userEmailElement:', userEmailElement);
+
+  //     // Mettez à jour les éléments HTML avec les informations de l'utilisateur
+  //     userNameElement.innerHTML = user.displayName || 'Nom inconnu';
+  //     userEmailElement.textContent = user.email || 'Email inconnu';
+  //   }
+  // }
   
 }
