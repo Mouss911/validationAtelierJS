@@ -215,3 +215,4 @@ myFormInscrip.addEventListener('submit', (e) => {
     dateDajout: serverTimestamp(),
   }).then(() => myFormInscrip.reset());
 });
+
