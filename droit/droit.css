@@ -63,10 +63,10 @@ body{
     transform: translate(-50%, -50%);
 }
 
-i{
+.i1{
     color: #00E100;
     position : relative;
-    left: 800px;
+    left: 700px;
     bottom: 150px;
     font-size: 30px;
 }
@@ -104,7 +104,7 @@ i{
         margin-left: 0;
     }
     i{
-        left: 280px;
+        left: 200px;
     }
 }
 
