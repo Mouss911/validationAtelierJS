@@ -32,7 +32,7 @@ const eleve = collection(db, 'inscScolarite');
 getDocs(eleve).then((snapshot) => {});
 
 // Realtime Update
-onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
+onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
