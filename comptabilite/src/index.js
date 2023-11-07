@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-
 // Importation des  services
 import {
   addDoc,
@@ -32,12 +31,11 @@ const eleve = collection(db, 'inscScolarite');
 getDocs(eleve).then((snapshot) => {});
 
 // Realtime Update
-onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
+onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  //   console.log(eleve);
   const list = document.querySelector('#list');
   list.innerHTML = '';
   eleve.forEach((utili) => {
@@ -53,41 +51,49 @@ onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
         </td>`;
     list.appendChild(tr);
   });
-  console.log(eleve);
 });
 
 //recuperer les données(nom, prenom, date) et les afficher dans revenue
+//___________________________________________________
 //partie pape cheikh
+
+// var database = firebase.database()
 
 onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
+    // console.log(snapshot);
   });
-  const total = document.getElementById('total');
-  // console.log(eleve[0].etatFin);
-  revenue.innerHTML = '';
-  let totalEtatFin = 0;
+  let totalEtatFin = 0
   eleve.forEach((utili) => {
     const revenue = document.getElementById('revenue');
     let trbody = document.createElement('tr');
+    // console.log(utili);
     trbody.innerHTML = `
-    <td class="border border-1">date</td>
+    <td class="border border-1">${utili.dateDajout
+      .toDate()
+      .toLocaleDateString()}</td>
     <td class="text-center">${utili.type}</td>
     <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
     <td class="border border-1">${utili.etatFin} Fcfa</td>
     `;
     revenue.appendChild(trbody);
-    totalEtatFin += parseInt(utili.etatFin);
+    
+    //Calcule du revenue total
+    totalEtatFin += parseInt(utili.etatFin)
   });
-  total.innerHTML = '';
-  let trfoot = document.createElement('tr');
+  const total = document.getElementById("total")
+  let trfoot = document.createElement('tr')
   trfoot.innerHTML = `
-  <td colspan="3" class="border border-1"><b>TOTAL</b></td>
-  <td class="border border-1"> <b>${totalEtatFin} Fcfa</b></td>
-  `;
-  total.appendChild(trfoot);
+  <td colspan="3"><b>Total</b></td>
+  <td><b>${totalEtatFin} Fcfa </b></td>
+  `
+  total.appendChild(trfoot)
+console.log(totalEtatFin);
+
 });
+
 
 // Enregistrer des données dans le Firebase
 const form = document.querySelector('.addToFirebase');
