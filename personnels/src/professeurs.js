@@ -8,21 +8,21 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 
-let proff
+let proff;
 
 export function gestionProfesseurs() {
-    const db = getFirestore();
-    const professeurs = collection(db, "professeurs");
-    const container = document.getElementById("container");
-    
-    onSnapshot(professeurs, (snapshot) => {
-      let professeursData = [];
+  const db = getFirestore();
+  const professeurs = collection(db, "professeurs");
+  const container = document.getElementById("container");
+
+  onSnapshot(professeurs, (snapshot) => {
+    let professeursData = [];
     snapshot.docs.forEach((doc) => {
       professeursData.push({ ...doc.data(), id: doc.id });
     });
 
     container.innerHTML = "";
-    proff = professeursData
+    proff = professeursData;
     professeursData.forEach((utilisateur) => {
       let ligne = document.createElement("tr");
       ligne.innerHTML = `
@@ -64,8 +64,9 @@ export function modifierProfesseur(id, nouveauProfesseur) {
   const db = getFirestore();
   const professeurs = collection(db, "professeurs");
   const docRef = doc(professeurs, id);
-
+  const form = document.querySelector(".addToFirebase");
   updateDoc(docRef, nouveauProfesseur).then(() => {
+    form.reset();
     console.log("Document modifié avec succès !");
   });
 }
