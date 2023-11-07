@@ -46,6 +46,22 @@ export function gestionEmployer() {
       container.appendChild(ligne);
     });
   });
+
+   function recherche(rechercheInput, emplo) {
+    rechercheInput.addEventListener("input", (e) => {
+      const elementSaisie = e.target.value;
+      document.getElementById("contenu").innerHTML = ""
+      const collectionFilter = emplo.filter(
+        (element) =>
+          element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
+          element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
+      );
+      console.log(collectionFilter);
+    });
+  }
+  const rechercheInput = document.getElementById("rechercheEmployer")
+ 
+  recherche(rechercheInput, emplo)
 }
 
 export function ajouterEmployer(formEmployer) {
@@ -65,9 +81,11 @@ export function modifierEmployer(id, nouveauEmployer) {
   const db = getFirestore();
   const employer = collection(db, "employer");
   const docRef = doc(employer, id);
-
+  const formEmployer = document.querySelector(".formEmployer");
   updateDoc(docRef, nouveauEmployer).then(() => {
+    formEmployer.reset()
     console.log("Document modifié avec succès !");
+    
   });
 }
 
@@ -82,17 +100,6 @@ export function supprimerEmployer(id) {
 }
 
 export { emplo };
-console.log(emplo);
+// console.log(emplo);
 
-export function recherche(rechercheInput, emplo) {
-  rechercheInput.addEventListener("input", (e) => {
-    const elementSaisie = e.target.value;
-    document.getElementById("contenu").innerHTML = ""
-    const collectionFilter = emplo.filter(
-      (element) =>
-        element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
-        element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
-    );
-    console.log(collectionFilter);
-  });
-}
+
