@@ -35,6 +35,7 @@ export function nombreEmployer() {
 export function nombreAssocie() {
   const db = getFirestore();
 
+
   const associe = collection(db, "associe");
   const nombreAssocie = document.getElementById("associe");
   onSnapshot(associe, (snapshot) => {
@@ -46,3 +47,4 @@ export function nombreAssocie() {
     nombreAssocie.innerHTML = associe.length;
   });
 }
+

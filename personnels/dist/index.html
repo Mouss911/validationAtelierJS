@@ -506,9 +506,9 @@
                 </form>
                   
                 </div>
-                <div class="row gy-4 logo-entreprise d-flex justify-content- mt-5 mb-0 mb-lg-5 text-center">
+                <div class="row gy-4  d-flex justify-content- mt-5 mb-0 mb-lg-5 text-center" id="logo-entreprise">
                   <div class="col-lg-2 align-items-center">
-                      <button type="button" class="btn btn-dark color-text">logo</button>
+                      <button type="button" class="btn btn-dark color-text">logo</button>                                                            
                     <p class="" style="font-size: 13px;">Nom de l'entreprise <br> associé</p>
                   </div>
                   <div class="col-lg-2">
@@ -553,34 +553,34 @@
                ></button>
              </div>
              <div class="modal-body">
-               <form class="">
+               <form id="formAssocie">
                  <div class="mb-3">
-                   <label for="nom" class="form-label">Nom Entreprise</label>
+                   <label for="nomAss" class="form-label">Nom Entreprise</label>
                    <input
                      type="text"
                      class="form-control shadow-sm"
                      required
-                     id="nom"
+                     id="nomAss"
                    />
                  </div>
                  <div class="mb-3">
-                   <label for="email" class="form-label">Email</label>
+                   <label for="emailAss" class="form-label">Email</label>
                    <input
                      type="email"
                      class="form-control shadow-sm"
                      required
-                     id="email"
+                     id="emailAss"
                    />
                  </div>
                  <div class="mb-3">
-                   <label for="coordonnee" class="form-label"
+                   <label for="coordonneeAss" class="form-label"
                      >coordonnées</label
                    >
                    <input
                      type="text"
                      class="form-control shadow-sm"
                      required
-                     id="coordonnee"
+                     id="coordonneeAss"
                    />
                  </div>
                  <div class="mb-3">
@@ -593,10 +593,11 @@
                   />
                 </div>
                  <div id="liveAlertPlaceholder"></div>
-                 <button
+                 <button 
                    class="btn bg-green mt-2"
                    data-bs-dismiss="modal"
                    aria-label="Close"
+                   id="ajoutAsso"
                  >
                    Enregistrer
                  </button>

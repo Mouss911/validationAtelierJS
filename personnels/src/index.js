@@ -2,25 +2,10 @@ import { initializeApp } from "firebase/app";
 
 // import { collection, updateDoc, getDocs, doc, deleteDoc, onSnapshot, getFirestore, addDoc } from "firebase/firestore";
 
-import {
-  nombreProfesseur,
-  nombreEmployer,
-  nombreAssocie,
-} from "./personnel.js";
-import {
-  proff,
-  gestionProfesseurs,
-  ajouterProfesseur,
-  modifierProfesseur,
-  supprimerProfesseur,
-} from "./professeurs.js";
-import {
-  gestionEmployer,
-  ajouterEmployer,
-  emplo,
-  supprimerEmployer,
-  modifierEmployer,
-} from "./employer.js";
+import { nombreProfesseur, nombreEmployer, nombreAssocie } from "./personnel.js";
+import { proff, gestionProfesseurs, ajouterProfesseur, modifierProfesseur, supprimerProfesseur,  } from './professeurs.js';
+import { gestionEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';
+import {   gestionAssocie, ajouterAssocier } from "./associe.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
@@ -38,6 +23,7 @@ const app = initializeApp(firebaseConfig);
 /*******PARTIE PROFESSEURS ET EMPLOYER******/
 let id;
 
+
 gestionProfesseurs();
 gestionEmployer();
 
@@ -47,6 +33,8 @@ const btnAjouter = document.getElementById("ajouter");
 const btnModifier = document.getElementById("modifier");
 const btnModifierEmplo = document.getElementById("modifierEmployer");
 const ajouterEmpl = document.getElementById("ajouterEmployer");
+const ajoutAsso = document.getElementById("ajoutAsso");
+const formAssocie = document.getElementById("formAssocie");
 const nom = document.getElementById("nom");
 const nomEmplo = document.getElementById("nomEmplo");
 const prenomEmplo = document.getElementById("prenomEmplo");
@@ -176,6 +164,15 @@ document.addEventListener("click", function (e) {
   }
 });
 
+/* PARTIE ASSOCIER */
+
+gestionAssocie();
+
+  ajoutAsso.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log(formAssocie);
+  ajouterAssocier(formAssocie);
+})
 /*******PARTIE ACCUEIL**********/
 nombreProfesseur();
 nombreEmployer();
