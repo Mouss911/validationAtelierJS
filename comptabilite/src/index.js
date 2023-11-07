@@ -37,7 +37,6 @@ onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  //   console.log(eleve);
   const list = document.querySelector('#list');
   list.innerHTML = '';
   eleve.forEach((utili) => {
@@ -57,6 +56,7 @@ onSnapshot(eleve.orderBy('dateDajout', 'desc'), (snapshot) => {
 });
 
 //recuperer les données(nom, prenom, date) et les afficher dans revenue
+//___________________________________________________
 //partie pape cheikh
 
 onSnapshot(eleve, (snapshot) => {
@@ -72,7 +72,6 @@ onSnapshot(eleve, (snapshot) => {
     const revenue = document.getElementById("revenue");
     let trbody = document.createElement("tr"); 
     console.log(utili);
-
     trbody.innerHTML = `
     <td class="border border-1">${utili.dateDajout.toDate().toLocaleDateString()}</td>
     <td class="text-center">${utili.type}</td>
@@ -81,7 +80,7 @@ onSnapshot(eleve, (snapshot) => {
     `;
     revenue.appendChild(trbody);
     //Calcule du revenue total
-    totalEtatFin+= parseInt(utili.etatFin)
+    totalEtatFin += parseInt(utili.etatFin)
 
   });
   total.innerHTML = '';
