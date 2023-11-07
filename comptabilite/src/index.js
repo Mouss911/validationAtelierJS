@@ -85,6 +85,7 @@ onSnapshot(eleve, (snapshot) => {
   });
   const total = document.getElementById("total")
   let trfoot = document.createElement('tr')
+  total.innerHTML=''
   trfoot.innerHTML = `
   <td colspan="3"><b>Total</b></td>
   <td><b>${totalEtatFin} Fcfa </b></td>
