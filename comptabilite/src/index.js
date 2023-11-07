@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 // Importation des  services
 import {
   addDoc,
@@ -8,16 +8,16 @@ import {
   getFirestore,
   onSnapshot,
   serverTimestamp,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
-  authDomain: "validation-atelier-js.firebaseapp.com",
-  projectId: "validation-atelier-js",
-  storageBucket: "validation-atelier-js.appspot.com",
-  messagingSenderId: "466332062090",
-  appId: "1:466332062090:web:ffbe45ef4a7371a7b5b873",
+  apiKey: 'AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY',
+  authDomain: 'validation-atelier-js.firebaseapp.com',
+  projectId: 'validation-atelier-js',
+  storageBucket: 'validation-atelier-js.appspot.com',
+  messagingSenderId: '466332062090',
+  appId: '1:466332062090:web:ffbe45ef4a7371a7b5b873',
 };
 
 // Initialize Firebase
@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Récupérer la collection
-const eleve = collection(db, "inscScolarite");
+const eleve = collection(db, 'inscScolarite');
 
 getDocs(eleve).then((snapshot) => {});
 
@@ -36,11 +36,13 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  const list = document.querySelector("#list");
-  list.innerHTML = "";
+  eleve.sort((a, b) => b.dateDajout - a.dateDajout);
+  const list = document.querySelector('#list');
+  list.innerHTML = '';
+
   eleve.forEach((utili) => {
-    const list = document.querySelector("#list");
-    const tr = document.createElement("tr");
+    const list = document.querySelector('#list');
+    const tr = document.createElement('tr');
 
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
@@ -65,10 +67,10 @@ onSnapshot(eleve, (snapshot) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
   let totalEtatFin = 0;
-  const revenue = document.getElementById("revenue");
-  revenue.innerHTML =''
+  const revenue = document.getElementById('revenue');
+  revenue.innerHTML = '';
   eleve.forEach((utili) => {
-    let trbody = document.createElement("tr");
+    let trbody = document.createElement('tr');
     trbody.innerHTML = `
     <td class="border border-1">${utili.dateDajout
       .toDate()
@@ -82,9 +84,10 @@ onSnapshot(eleve, (snapshot) => {
     //Calcule du revenue total
     totalEtatFin += parseInt(utili.etatFin);
   });
-  const total = document.getElementById("total");
-  total.innerHTML = "";
-  let trfoot = document.createElement("tr");
+
+  const total = document.getElementById('total');
+  total.innerHTML = '';
+  let trfoot = document.createElement('tr');
   trfoot.innerHTML = `
   <td colspan="3"><b>Total</b></td>
   <td><b>${totalEtatFin} Fcfa </b></td>
@@ -93,8 +96,8 @@ onSnapshot(eleve, (snapshot) => {
 });
 
 // Enregistrer des données dans le Firebase
-const form = document.querySelector(".addToFirebase");
-form.addEventListener("submit", (e) => {
+const form = document.querySelector('.addToFirebase');
+form.addEventListener('submit', (e) => {
   e.preventDefault();
   //Ajouter un nouveau document avec un id généré
   addDoc(eleve, {
@@ -108,29 +111,29 @@ form.addEventListener("submit", (e) => {
 });
 
 // Alert Après ajout
-const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
 const appendAlert = (message, type) => {
-  const wrapper = document.createElement("div");
+  const wrapper = document.createElement('div');
   wrapper.innerHTML = [
     `<div class="alert alert-${type} alert-dismissible" role="alert">`,
     `   <div>${message}</div>`,
     '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    "</div>",
-  ].join("");
+    '</div>',
+  ].join('');
 
   alertPlaceholder.append(wrapper);
 };
 
-const alertTrigger = document.getElementById("liveAlertBtn");
+const alertTrigger = document.getElementById('liveAlertBtn');
 if (alertTrigger) {
-  alertTrigger.addEventListener("click", () => {
-    appendAlert("Linscription est effectué avec succès", "success");
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('Linscription est effectué avec succès', 'success');
   });
 }
 
 // _________________________
 // Parti Ladji Timéra
-const certiesRef = collection(db, "inscrireActivite");
+const certiesRef = collection(db, 'inscrireActivite');
 
 getDocs(certiesRef).then((snapshot) => {});
 onSnapshot(certiesRef, (snapshot) => {
@@ -138,11 +141,13 @@ onSnapshot(certiesRef, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef.push({ ...doc.data(), id: doc.id });
   });
-  const list = document.querySelector(".mytbody");
-  list.innerHTML = "";
+  certiesRef.sort((a, b) => b.dateDajout - a.dateDajout);
+  const list = document.querySelector('.mytbody');
+  list.innerHTML = '';
+  // console.log(certiesRef);
   certiesRef.forEach((utili) => {
-    const list = document.querySelector(".mytbody");
-    const tr = document.createElement("tr");
+    const list = document.querySelector('.mytbody');
+    const tr = document.createElement('tr');
 
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
@@ -155,9 +160,9 @@ onSnapshot(certiesRef, (snapshot) => {
   });
 });
 
-const myForm = document.querySelector(".myForm");
+const myForm = document.querySelector('.myForm');
 
-myForm.addEventListener("submit", (e) => {
+myForm.addEventListener('submit', (e) => {
   e.preventDefault();
   //Ajouter un nouveau document avec un id généré
   addDoc(certiesRef, {
@@ -171,7 +176,7 @@ myForm.addEventListener("submit", (e) => {
 });
 // Mensualite Ladji
 
-const certiesRef2 = collection(db, "mensualites");
+const certiesRef2 = collection(db, 'mensualites');
 
 getDocs(certiesRef2).then((snapshot) => {});
 onSnapshot(certiesRef2, (snapshot) => {
@@ -179,12 +184,14 @@ onSnapshot(certiesRef2, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef2.push({ ...doc.data(), id: doc.id });
   });
-  const list = document.querySelector(".mytbodyIns");
-  list.innerHTML = "";
+  certiesRef2.sort((a, b) => b.dateDajout - a.dateDajout);
+  const list = document.querySelector('.mytbodyIns');
+  list.innerHTML = '';
+
   // console.log(certiesRef2);
   certiesRef2.forEach((utili) => {
-    const list = document.querySelector(".mytbodyIns");
-    const tr = document.createElement("tr");
+    const list = document.querySelector('.mytbodyIns');
+    const tr = document.createElement('tr');
 
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
@@ -197,9 +204,9 @@ onSnapshot(certiesRef2, (snapshot) => {
   });
 });
 
-const myFormInscrip = document.querySelector(".myFormInscrip");
+const myFormInscrip = document.querySelector('.myFormInscrip');
 
-myFormInscrip.addEventListener("submit", (e) => {
+myFormInscrip.addEventListener('submit', (e) => {
   e.preventDefault();
   //Ajouter un nouveau document avec un id généré
   addDoc(certiesRef2, {
