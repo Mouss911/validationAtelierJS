@@ -49,3 +49,10 @@
     margin-left: 25px;
   }
 
+.image-input{
+  display: block;
+  padding: 1rem;
+  width: 90%;
+  margin: auto;
+  background-color: bisque;
+}
