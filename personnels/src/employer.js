@@ -23,6 +23,7 @@ export function gestionEmployer() {
 
     container.innerHTML = "";
     emplo = employer;
+    console.log(emplo);
     employer.forEach((utilisateur) => {
       let ligne = document.createElement("tr");
       ligne.innerHTML = `
@@ -61,23 +62,37 @@ export function ajouterEmployer(formEmployer) {
 }
 
 export function modifierEmployer(id, nouveauEmployer) {
-    const db = getFirestore();
-    const employer = collection(db, "employer");
-    const docRef = doc(employer, id);
-  
-    updateDoc(docRef, nouveauEmployer).then(() => {
-      console.log("Document modifié avec succès !");
-    });
-  }
+  const db = getFirestore();
+  const employer = collection(db, "employer");
+  const docRef = doc(employer, id);
+
+  updateDoc(docRef, nouveauEmployer).then(() => {
+    console.log("Document modifié avec succès !");
+  });
+}
 
 export function supprimerEmployer(id) {
-    const db = getFirestore();
-    const employer = collection(db, "employer");
-    const docRef = doc(employer, id);
+  const db = getFirestore();
+  const employer = collection(db, "employer");
+  const docRef = doc(employer, id);
   
-    deleteDoc(docRef).then(() => {
-      console.log("Document supprimé avec succès !");
-    });
-  }
-  
-  export { emplo };
+  deleteDoc(docRef).then(() => {
+    console.log("Document supprimé avec succès !");
+  });
+}
+
+export { emplo };
+console.log(emplo);
+
+export function recherche(rechercheInput, emplo) {
+  rechercheInput.addEventListener("input", (e) => {
+    const elementSaisie = e.target.value;
+    document.getElementById("contenu").innerHTML = ""
+    const collectionFilter = emplo.filter(
+      (element) =>
+        element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
+        element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
+    );
+    console.log(collectionFilter);
+  });
+}
