@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 
 import { proff, gestionProfesseurs, ajouterProfesseur, modifierProfesseur, supprimerProfesseur,  } from './professeurs.js';
 import { gestionEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';
+import {   gestionAssocie, ajouterAssocier } from "./associe.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
@@ -18,6 +19,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+/*    PARTIE PROFESSEUS ET EMPLOYER*/
 let id
 
 
@@ -32,6 +35,8 @@ const btnAjouter = document.getElementById("ajouter");
 const btnModifier = document.getElementById("modifier")
 const btnModifierEmplo = document.getElementById("modifierEmployer");
 const ajouterEmpl = document.getElementById("ajouterEmployer");
+const ajoutAsso = document.getElementById("ajoutAsso");
+const formAssocie = document.getElementById("formAssocie");
 const nom = document.getElementById("nom");
 const nomEmplo = document.getElementById("nomEmplo");
 const prenomEmplo = document.getElementById("prenomEmplo");
@@ -166,5 +171,15 @@ btnModifier.addEventListener("click", (e) => {
    } 
  });
   
+
+/* PARTIE ASSOCIER */
+
+gestionAssocie();
+
+  ajoutAsso.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log(formAssocie);
+  ajouterAssocier(formAssocie);
+})
 
 
