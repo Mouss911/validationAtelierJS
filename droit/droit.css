@@ -29,7 +29,11 @@ body{
 .center{
     background: linear-gradient(rgba(50, 39, 39, 0.5), rgba(25, 19, 19, 0.5)), url('unnamed 1.png') center center/cover no-repeat;
     border-radius: 10px;
+<<<<<<< HEAD
     height: 80vh;
+=======
+    height: 70vh;
+>>>>>>> 19f5c13a757d0ba8dcd1392d7b54d1d1092ba573
     width: 100%;
     position: relative;
     text-align: center; 
@@ -66,7 +70,11 @@ body{
 .i1{
     color: #00E100;
     position : relative;
+<<<<<<< HEAD
     left: 400px;
+=======
+    left: 700px;
+>>>>>>> 19f5c13a757d0ba8dcd1392d7b54d1d1092ba573
     bottom: 150px;
     font-size: 30px;
 }
@@ -117,7 +125,10 @@ body{
     overflow: auto;
     padding: 5px;
     border: solid 1px #ddd;
+<<<<<<< HEAD
     width: 100%;
+=======
+>>>>>>> 19f5c13a757d0ba8dcd1392d7b54d1d1092ba573
 }
 #editor-container:focus {
     outline: none;
@@ -129,3 +140,7 @@ body{
     padding: 10px;         
     margin: 10px 0;        
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 19f5c13a757d0ba8dcd1392d7b54d1d1092ba573
