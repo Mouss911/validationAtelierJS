@@ -65,8 +65,10 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  let totalEtatFin = 0;
+  eleve.sort((a, b) => b.dateDajout - a.dateDajout);
+
   const revenue = document.getElementById('revenue');
+  let totalEtatFin = 0;
   revenue.innerHTML = '';
   eleve.forEach((utili) => {
     let trbody = document.createElement('tr');
@@ -84,6 +86,18 @@ onSnapshot(eleve, (snapshot) => {
 
     //Calcule du revenue total
     totalEtatFin += parseInt(utili.etatFin);
+
+    const total = document.getElementById('total');
+    total.innerHTML = '';
+    let trfoot = document.createElement('tr');
+    trfoot.innerHTML = `
+    <td colspan="3"><b>Total</b></td>
+    <td><b>${totalEtatFin.toLocaleString("en-US")} Fcfa </b></td>
+    `;
+    total.appendChild(trfoot);
+    total.appendChild(trfoot);
+    const revTotal = document.getElementById('revenuTotal')
+    revTotal.innerHTML = `${totalEtatFin.toLocaleString("en-US")} <span class="fw-bold">FCFA</span>`
   });
 
   const total = document.getElementById('total');
