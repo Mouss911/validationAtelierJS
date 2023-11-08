@@ -20,9 +20,9 @@ export function gestionProfesseurs() {
     snapshot.docs.forEach((doc) => {
       professeursData.push({ ...doc.data(), id: doc.id });
     });
-
-    container.innerHTML = "";
+    professeursData.sort((a, b) => b.dateDajout - a.dateDajout)
     proff = professeursData;
+    container.innerHTML = "";
     professeursData.forEach((utilisateur) => {
       let ligne = document.createElement("tr");
       ligne.innerHTML = `
@@ -64,6 +64,7 @@ export function ajouterProfesseur(form) {
       matiere: form.matiere.value,
       classe: form.classe.value,
       coordonnee: form.coordonnee.value,
+      dateDajout: serverTimestamp()
     }).then(() => {
       erreurProf.style.display = "none";
       form.reset();

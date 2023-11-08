@@ -6,25 +6,37 @@ import {
   addDoc,
   updateDoc,
   deleteDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 
 let emplo;
 
-export function gestionEmployer() {
+export function getEmployer() {
   const db = getFirestore();
   const employer = collection(db, "employer");
-  const container = document.getElementById("contenu");
 
   onSnapshot(employer, (snapshot) => {
     let employer = [];
     snapshot.docs.forEach((doc) => {
       employer.push({ ...doc.data(), id: doc.id });
     });
+    emplo = employer
+    employer.sort((a, b) => b.dateDajout - a.dateDajout)
+    gestionEmployer(employer)
+    return employer
+  });
+}
+
+export function gestionEmployer(utilisateurs) {
+  
+  const container = document.getElementById("contenu");
+
+  
 
     container.innerHTML = "";
-    emplo = employer;
-    console.log(emplo);
-    employer.forEach((utilisateur) => {
+    // emplo = utilisateurs;
+    // console.log(emplo);
+    utilisateurs.forEach((utilisateur) => {
       let ligne = document.createElement("tr");
       ligne.innerHTML = `
                 <td class="mx-auto text-center d-none d-lg-block m-0">${utilisateur.nom}</td>
@@ -45,29 +57,29 @@ export function gestionEmployer() {
 
       container.appendChild(ligne);
     });
-  });
-
-  function recherche(rechercheInput, emplo) {
-    rechercheInput.addEventListener("input", (e) => {
-      const elementSaisie = e.target.value;
-      document.getElementById("contenu").innerHTML = "";
-      const collectionFilter = emplo.filter(
-        (element) =>
-          element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
-          element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
-      );
-      console.log(collectionFilter);
-    });
   }
-  const rechercheInput = document.getElementById("rechercheEmployer");
 
-  recherche(rechercheInput, emplo);
-}
+  // function recherche(rechercheInput, emplo) {
+  //   rechercheInput.addEventListener("input", (e) => {
+  //     const elementSaisie = e.target.value;
+  //     document.getElementById("contenu").innerHTML = "";
+  //     const collectionFilter = emplo.filter(
+  //       (element) =>
+  //         element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
+  //         element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
+  //     );
+  //     console.log(collectionFilter);
+  //   });
+  // }
+  // const rechercheInput = document.getElementById("rechercheEmployer");
+
+  // recherche(rechercheInput, emplo);
+// }
 
 export function ajouterEmployer(formEmployer) {
   const db = getFirestore();
   const employer = collection(db, "employer");
-  const erreur = document.getElementById("erreur")
+  const erreur = document.getElementById("erreur");
   if (
     formEmployer.nomEmplo.value &&
     formEmployer.prenomEmplo.value &&
@@ -81,17 +93,17 @@ export function ajouterEmployer(formEmployer) {
       domaine: formEmployer.domaine.value,
       adresse: formEmployer.adresse.value,
       coordonnee: formEmployer.coordonneeEmplo.value,
+      dateDajout: serverTimestamp(),
     }).then(() => {
-      formEmployer.reset()
-      erreur.style.display = "none"
+      formEmployer.reset();
+      erreur.style.display = "none";
     });
   } else {
-    erreur.style.display = "block"
-    erreur.innerHTML = "Merci de remplir les champs "
+    erreur.style.display = "block";
+    erreur.innerHTML = "Merci de remplir les champs ";
 
     console.log("Merci de remplir le champs");
   }
-
 }
 
 export function modifierEmployer(id, nouveauEmployer) {
@@ -116,5 +128,7 @@ export function supprimerEmployer(id) {
   });
 }
 
+
+
+console.log(emplo);
 export { emplo };
-// console.log(emplo);
