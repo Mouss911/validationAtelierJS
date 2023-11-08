@@ -85,6 +85,18 @@ onSnapshot(eleve, (snapshot) => {
 
     //Calcule du revenue total
     totalEtatFin += parseInt(utili.etatFin);
+
+    const total = document.getElementById('total');
+    total.innerHTML = '';
+    let trfoot = document.createElement('tr');
+    trfoot.innerHTML = `
+    <td colspan="3"><b>Total</b></td>
+    <td><b>${totalEtatFin.toLocaleString("en-US")} Fcfa </b></td>
+    `;
+    total.appendChild(trfoot);
+    total.appendChild(trfoot);
+    const revTotal = document.getElementById('revenuTotal')
+    revTotal.innerHTML = `${totalEtatFin.toLocaleString("en-US")} <span class="fw-bold">FCFA</span>`
   });
 
   const total = document.getElementById('total');
