@@ -154,6 +154,7 @@ if (currentPath === inscriptionPath) {
   const registrationForm = document.getElementById("registration-form");
   registrationForm.addEventListener("submit", handleRegistration);
 } else if (currentPath === connexionPath) {
+  console.log("page connexion");
   const loginForm = document.getElementById("signup");
   loginForm.addEventListener("submit", handleLogin);
 } else if (currentPath === profilPath) {
