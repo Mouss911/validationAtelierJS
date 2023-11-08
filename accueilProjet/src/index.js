@@ -100,7 +100,7 @@ const handleLogin = async (event) => {
       password
     );
     const user = userCredential.user;
-    console.log("Utilisateur connecté :", user);
+    console.log("Utilisateur connecté");
     window.location.href = "/validationAtelierJS/accueilProjet/dist/dashbord.html";
 
   } catch (error) {
