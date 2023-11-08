@@ -92,11 +92,44 @@ body{
 }
 
 
+@media screen and (max-width : 768px) {
+    .center h1{
+        font-size: 20px;
+    }
+    .i1{
+        left: 800px;
+    }
+}
+@media screen and (max-width : 320px) {
+    .center h1{
+        font-size: 10px;
+        white-space: wrap;
+    }
+}
+@media screen and (max-width : 1024px) {
+    .center h1{
+        font-size: 10px;
+    }
+    .i1{
+        left: 400px;
+    }
+}
+@media screen and (max-width : 1500px) {
+    .center h1{
+        font-size: 25px;
+        
+    }
+    
+}
+
+
 
 @media screen and (max-width : 576px) {
     .center{
         position: relative;
         width: 100%;
+        font-size: 20px;
+        
     }
 
     .center2{
