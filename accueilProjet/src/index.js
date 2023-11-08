@@ -82,7 +82,9 @@ const handleRegistration = async (event) => {
 };
 
 const handleLogin = async (event) => {
+  console.log('before prevent')
   event.preventDefault();
+  console.log('after prevent')
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
