@@ -28,9 +28,9 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const currentPath = window.location.pathname;
-const inscriptionPath = "/validationAtelierJS/accueilProjet/inscription.html";
-const connexionPath = "/validationAtelierJS/accueilProjet/dist/test.html";
-const profilPath = "/validationAtelierJS/accueilProjet/dist/profil.html";
+const inscriptionPath = "/accueilProjet/inscription.html";
+const connexionPath = "/accueilProjet/dist/test.html";
+const profilPath = "/accueilProjet/dist/profil.html";
 
 const handleRegistration = async (event) => {
   event.preventDefault();
@@ -95,8 +95,8 @@ const handleLogin = async (event) => {
     );
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
+    window.location.href = "/accueilProjet/dist/dashbord.html";
 
-    window.location.href = "/validationAtelierJS/accueilProjet/dist/dashbord.html";
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -106,14 +106,20 @@ const handleLogin = async (event) => {
 
 const handleProfile = () => {
 
-  database = firebase.database();
+  var database = firebase.database();
   var ref = database.ref('utilisateurs');
   ref.on('value', gotData, errData);
 
   function gotData(data){
+    console.log(data.val());    
     var utilisateurs = data.val();
     var keys = Object.keys(utilisateurs);
     console.log(keys);
+  }
+
+  function errData(err){
+    console.log('Error');
+    console.log(err);
   }
 
 
@@ -158,6 +164,6 @@ if (currentPath === inscriptionPath) {
   const loginForm = document.getElementById("signup");
   loginForm.addEventListener("submit", handleLogin);
 } else if (currentPath === profilPath) {
-  handleProfile();
   console.log("page profil");
+  handleProfile();
 }
