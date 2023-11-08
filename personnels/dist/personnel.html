@@ -121,15 +121,21 @@
                <h6 class="text-center mb-0 fst-italic">Moustapha Djigo</h6>
                <p class="mt-0 pt-0 text-light">Proviseur</p>
               </div>              
-              <li><a class="dropdown-item   mt-3 " href="../../accueilProjet/dist/profil.html">
+              <li id="redirigeProfil">
+                <a class="dropdown-item   mt-3 " href="">
                 <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
                  Voir le profil
-                </button></a></li>
-              <li><a class="dropdown-item" href="../../accueilProjet/dist/test.html">
+                </button>
+              </a>
+              </li>
+              <li id="redirigeTest">
+                <a class="dropdown-item" href="">
 
-                <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
-                  Deconnexion
-                </button></a></li>
+                  <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
+                    Deconnexion
+                  </button>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -146,21 +152,21 @@
              <div class="logo-details" id="btn">
              </div>
              <ul class="nav-list">
-                 <li>
-                     <a href="../../accueilProjet/dist/dashbord.html">
+                 <li id="redirigeDashbord">
+                     <a href="">
                          <i class="fa-solid fa-table-columns"></i>
                          <span class="links_name">Accueil</span>
                      </a>
                      <span class="tooltip">Accueil</span>
                  </li>
                  <li>
-                     <a href="../../personnels/dist/personnel.html"><i class="fa-regular fa-user"></i>
+                     <a href="#"><i class="fa-regular fa-user"></i>
                          <span class="links_name">Personnel</span>
                      </a>
                      <span class="tooltip">Personnel</span>
                  </li>
-                 <li>
-                     <a href="#">
+                 <li id="redirigeCompta">
+                     <a href="">
                          <i class="fa-solid fa-chart-pie"></i>
                          <span class="links_name">Comptablité</span>
                      </a>
@@ -187,8 +193,8 @@
                      </a>
                      <span class="tooltip">Autentifications</span>
                  </li>
-                 <li>
-                     <a href="../../droit/droit.html">
+                 <li id="redirigeDroit">
+                     <a href="">
                       <i class="fa-solid fa-people-arrows"></i>
                          <span class="links_name">Droits</span>
                      </a>
@@ -784,7 +790,7 @@
     </div>
   </div>
 
-    
+    <script src="redirection.js"></script>
     <script src="sidebar.js"></script>
   </body>
 </html>
