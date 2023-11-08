@@ -97,6 +97,7 @@ const handleLogin = async (event) => {
     console.log("Utilisateur connecté :", user);
 
     window.location.href = "/validationAtelierJS/accueilProjet/dist/dashbord.html";
+    window.location.href = "/validationAtelierJS/accueilProjet/dist/dashbord.html";
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
