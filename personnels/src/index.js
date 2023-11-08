@@ -1,7 +1,5 @@
 import { initializeApp } from "firebase/app";
 
-// import { collection, updateDoc, getDocs, doc, deleteDoc, onSnapshot, getFirestore, addDoc } from "firebase/firestore";
-
 import { nombreProfesseur, nombreEmployer, nombreAssocie } from "./personnel.js";
 import { proff, gestionProfesseurs, ajouterProfesseur, modifierProfesseur, supprimerProfesseur,  } from './professeurs.js';
 import { gestionEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';

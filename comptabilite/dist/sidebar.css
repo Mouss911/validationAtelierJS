@@ -45,7 +45,7 @@ input{
 .compte .profil:hover{
     transform: scale(1.2);
 }
-.compte .fa-angle-down:hover, .fa-bell:hover{
+.compte .angle-down:hover, .fa-bell:hover{
     color: #00E100;
     transform: scale(1.2);
 }
