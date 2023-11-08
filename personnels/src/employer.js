@@ -47,10 +47,10 @@ export function gestionEmployer() {
     });
   });
 
-   function recherche(rechercheInput, emplo) {
+  function recherche(rechercheInput, emplo) {
     rechercheInput.addEventListener("input", (e) => {
       const elementSaisie = e.target.value;
-      document.getElementById("contenu").innerHTML = ""
+      document.getElementById("contenu").innerHTML = "";
       const collectionFilter = emplo.filter(
         (element) =>
           element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
@@ -59,22 +59,39 @@ export function gestionEmployer() {
       console.log(collectionFilter);
     });
   }
-  const rechercheInput = document.getElementById("rechercheEmployer")
- 
-  recherche(rechercheInput, emplo)
+  const rechercheInput = document.getElementById("rechercheEmployer");
+
+  recherche(rechercheInput, emplo);
 }
 
 export function ajouterEmployer(formEmployer) {
   const db = getFirestore();
   const employer = collection(db, "employer");
+  const erreur = document.getElementById("erreur")
+  if (
+    formEmployer.nomEmplo.value &&
+    formEmployer.prenomEmplo.value &&
+    formEmployer.domaine.value &&
+    formEmployer.adresse.value &&
+    formEmployer.coordonneeEmplo.value
+  ) {
+    addDoc(employer, {
+      nom: formEmployer.nomEmplo.value,
+      prenom: formEmployer.prenomEmplo.value,
+      domaine: formEmployer.domaine.value,
+      adresse: formEmployer.adresse.value,
+      coordonnee: formEmployer.coordonneeEmplo.value,
+    }).then(() => {
+      formEmployer.reset()
+      erreur.style.display = "none"
+    });
+  } else {
+    erreur.style.display = "block"
+    erreur.innerHTML = "Merci de remplir les champs "
 
-  addDoc(employer, {
-    nom: formEmployer.nomEmplo.value,
-    prenom: formEmployer.prenomEmplo.value,
-    domaine: formEmployer.domaine.value,
-    adresse: formEmployer.adresse.value,
-    coordonnee: formEmployer.coordonneeEmplo.value,
-  }).then(() => formEmployer.reset());
+    console.log("Merci de remplir le champs");
+  }
+
 }
 
 export function modifierEmployer(id, nouveauEmployer) {
@@ -82,10 +99,10 @@ export function modifierEmployer(id, nouveauEmployer) {
   const employer = collection(db, "employer");
   const docRef = doc(employer, id);
   const formEmployer = document.querySelector(".formEmployer");
+
   updateDoc(docRef, nouveauEmployer).then(() => {
-    formEmployer.reset()
+    formEmployer.reset();
     console.log("Document modifié avec succès !");
-    
   });
 }
 
@@ -93,7 +110,7 @@ export function supprimerEmployer(id) {
   const db = getFirestore();
   const employer = collection(db, "employer");
   const docRef = doc(employer, id);
-  
+
   deleteDoc(docRef).then(() => {
     console.log("Document supprimé avec succès !");
   });
@@ -101,5 +118,3 @@ export function supprimerEmployer(id) {
 
 export { emplo };
 // console.log(emplo);
-
-
