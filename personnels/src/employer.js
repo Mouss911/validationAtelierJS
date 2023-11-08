@@ -11,34 +11,29 @@ import {
 
 let emplo;
 
-export function getEmployer() {
+export function getEmployer(employes) {
   const db = getFirestore();
-  const employer = collection(db, "employer");
+  const collectionEmployer = collection(db, "employer");
 
-  onSnapshot(employer, (snapshot) => {
+  onSnapshot(collectionEmployer, (snapshot) => {
     let employer = [];
     snapshot.docs.forEach((doc) => {
       employer.push({ ...doc.data(), id: doc.id });
     });
+    employer.sort((a, b) => b.dateDajout - a.dateDajout);
     emplo = employer
-    employer.sort((a, b) => b.dateDajout - a.dateDajout)
-    gestionEmployer(employer)
-    return employer
+    gestionEmployer(employer);
+    employes(employer);
   });
 }
 
 export function gestionEmployer(utilisateurs) {
-  
   const container = document.getElementById("contenu");
+  container.innerHTML = "";
 
-  
-
-    container.innerHTML = "";
-    // emplo = utilisateurs;
-    // console.log(emplo);
-    utilisateurs.forEach((utilisateur) => {
-      let ligne = document.createElement("tr");
-      ligne.innerHTML = `
+  utilisateurs.forEach((utilisateur) => {
+    let ligne = document.createElement("tr");
+    ligne.innerHTML = `
                 <td class="mx-auto text-center d-none d-lg-block m-0">${utilisateur.nom}</td>
                 <td class="mx-auto text-center m-0">${utilisateur.prenom}</td>
                 <td class="mx-auto text-center m-0 d-none d-lg-block">${utilisateur.domaine}</td>
@@ -55,26 +50,29 @@ export function gestionEmployer(utilisateurs) {
                 </td>
             `;
 
-      container.appendChild(ligne);
-    });
-  }
+    container.appendChild(ligne);
+  });
+}
 
-  // function recherche(rechercheInput, emplo) {
-  //   rechercheInput.addEventListener("input", (e) => {
-  //     const elementSaisie = e.target.value;
-  //     document.getElementById("contenu").innerHTML = "";
-  //     const collectionFilter = emplo.filter(
-  //       (element) =>
-  //         element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
-  //         element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
-  //     );
-  //     console.log(collectionFilter);
-  //   });
-  // }
-  // const rechercheInput = document.getElementById("rechercheEmployer");
+export function recherche(rechercheInput, emplo) {
+  rechercheInput.addEventListener("input", (e) => {
+    const elementSaisie = e.target.value;
+    document.getElementById("contenu").innerHTML = "";
+    const collectionFilter = emplo.filter(
+      (element) =>
+        element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
+        element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
+    );
 
-  // recherche(rechercheInput, emplo);
-// }
+    if (collectionFilter.length) {
+      document.getElementById("erreurRefEmpl").innerHTML = "";
+      gestionEmployer(collectionFilter);
+    } else {
+      document.getElementById("erreurRefEmpl").innerHTML =
+        "Aucun resultat trouver";
+    }
+  });
+}
 
 export function ajouterEmployer(formEmployer) {
   const db = getFirestore();
@@ -128,7 +126,4 @@ export function supprimerEmployer(id) {
   });
 }
 
-
-
-console.log(emplo);
 export { emplo };

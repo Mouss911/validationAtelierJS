@@ -1,9 +1,30 @@
 import { initializeApp } from "firebase/app";
 
-import { nombreProfesseur, nombreEmployer, nombreAssocie } from "./personnel.js";
-import { proff, gestionProfesseurs, ajouterProfesseur, modifierProfesseur, supprimerProfesseur,  } from './professeurs.js';
-import { getEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';
-import {   gestionAssocie, ajouterAssocier } from "./associe.js";
+import {
+  nombreProfesseur,
+  nombreEmployer,
+  nombreAssocie,
+} from "./personnel.js";
+
+import {
+  getProfesseurs,
+  ajouterProfesseur,
+  proff,
+  modifierProfesseur,
+  supprimerProfesseur,
+  rechercheProff,
+} from "./professeurs.js";
+
+import {
+  getEmployer,
+  ajouterEmployer,
+  emplo,
+  supprimerEmployer,
+  modifierEmployer,
+  recherche,
+} from "./employer.js";
+
+import { gestionAssocie, ajouterAssocier } from "./associe.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCSRo2EZwo5LQIO75FevIBvEKbDD61HNuY",
@@ -21,9 +42,19 @@ const app = initializeApp(firebaseConfig);
 /*******PARTIE PROFESSEURS ET EMPLOYER******/
 let id;
 
+getProfesseurs(function (professeurs) {
+  console.log(professeurs);
+  const rechercheInput = document.getElementById("formProff");
+  console.log(rechercheInput);
+  rechercheProff(rechercheInput, professeurs);
+});
 
-gestionProfesseurs();
-getEmployer();
+getEmployer(function (employer) {
+  console.log(employer);
+  const rechercheInput = document.getElementById("rechercheEmployer");
+  console.log(rechercheInput);
+  recherche(rechercheInput, employer);
+});
 
 const form = document.querySelector(".addToFirebase");
 const formEmployer = document.querySelector(".formEmployer");
@@ -48,21 +79,16 @@ const container = document.getElementById("container");
 btnAjouter.addEventListener("click", (e) => {
   e.preventDefault();
   ajouterProfesseur(form);
-  container.innerHTML = "";
-  console.log(container);
 });
 
 ajouterEmpl.addEventListener("click", (e) => {
   e.preventDefault();
   ajouterEmployer(formEmployer);
-  console.log("employer");
-  // gestionProfesseurs();
 });
 
 btnModifier.addEventListener("click", (e) => {
   e.preventDefault();
 
-  console.log("nom");
   btnModifier.style.display = "none";
   btnAjouter.style.display = "block";
 
@@ -100,20 +126,13 @@ document.addEventListener("click", function (e) {
     btnAjouter.style.display = "none";
   } else if (e.target.classList.contains("supprimer")) {
     const id = e.target.getAttribute("data-id");
-    // container.innerHTML = ""
     supprimerProfesseur(id);
-    console.log(id);
-
-    container.innerHTML = "";
-    console.log(container);
-    gestionProfesseurs();
   }
 });
 
 btnModifierEmplo.addEventListener("click", (e) => {
   e.preventDefault();
 
-  console.log("nom");
   btnModifierEmplo.style.display = "none";
   ajouterEmpl.style.display = "block";
 
@@ -125,15 +144,8 @@ btnModifierEmplo.addEventListener("click", (e) => {
     adresse: adresse.value,
   };
 
-  console.log(nouveauEmployer);
   modifierEmployer(id, nouveauEmployer);
-
-  container.innerHTML = "";
-  console.log(container);
-  getEmployer();
 });
-
-console.log(emplo);
 
 // supprimer et modifier un employe
 document.addEventListener("click", function (e) {
@@ -154,13 +166,8 @@ document.addEventListener("click", function (e) {
     ajouterEmpl.style.display = "none";
   } else if (e.target.classList.contains("supprimer")) {
     const id = e.target.getAttribute("data-id");
-    // container.innerHTML = ""
-    supprimerEmployer(id);
-    console.log(id);
 
-    container.innerHTML = "";
-    console.log(container);
-    getEmployer();
+    supprimerEmployer(id);
   }
 });
 
@@ -168,11 +175,12 @@ document.addEventListener("click", function (e) {
 
 gestionAssocie();
 
-  ajoutAsso.addEventListener('click', function (e) {
+ajoutAsso.addEventListener("click", function (e) {
   e.preventDefault();
   console.log(formAssocie);
   ajouterAssocier(formAssocie);
-})
+});
+
 /*******PARTIE ACCUEIL**********/
 nombreProfesseur();
 nombreEmployer();
