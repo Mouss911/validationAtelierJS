@@ -32,9 +32,9 @@ const db = getFirestore(app);
 
 
 const currentPath = window.location.pathname;
-const inscriptionPath = "//accueilProjet/inscription.html";
-const connexionPath = "//accueilProjet/dist/test.html";
-const profilPath = "//accueilProjet/dist/profil.html";
+const inscriptionPath = "/validationAtelierJS/accueilProjet/inscription.html";
+const connexionPath = "/validationAtelierJS/accueilProjet/dist/test.html";
+const profilPath = "/validationAtelierJS/accueilProjet/dist/profil.html";
 
 const handleRegistration = async (event) => {
   event.preventDefault();
@@ -101,7 +101,7 @@ const handleLogin = async (event) => {
     );
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
-    window.location.href = "../dist/dashbord.html";
+    window.location.href = "/validationAtelierJS/accueilProjet/dist/dashbord.html";
 
   } catch (error) {
     const errorCode = error.code;
