@@ -27,10 +27,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+
+
+
+
 const currentPath = window.location.pathname;
-const inscriptionPath = "/accueilProjet/inscription.html";
-const connexionPath = "/accueilProjet/dist/test.html";
-const profilPath = "/accueilProjet/dist/profil.html";
+const inscriptionPath = "//accueilProjet/inscription.html";
+const connexionPath = "//accueilProjet/dist/test.html";
+const profilPath = "//accueilProjet/dist/profil.html";
 
 const handleRegistration = async (event) => {
   event.preventDefault();
@@ -97,7 +101,7 @@ const handleLogin = async (event) => {
     );
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
-    window.location.href = "/accueilProjet/dist/dashbord.html";
+    window.location.href = "../dist/dashbord.html";
 
   } catch (error) {
     const errorCode = error.code;
@@ -157,15 +161,18 @@ const handleProfile = () => {
   // }
 };
 
+
+
 if (currentPath === inscriptionPath) {
   console.log('page inscription')
   const registrationForm = document.getElementById("registration-form");
   registrationForm.addEventListener("submit", handleRegistration);
 } else if (currentPath === connexionPath) {
-  console.log("page connexion");
   const loginForm = document.getElementById("signup");
+  console.log("page connexion");
   loginForm.addEventListener("submit", handleLogin);
 } else if (currentPath === profilPath) {
   console.log("page profil");
   handleProfile();
 }
+ 
