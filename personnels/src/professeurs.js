@@ -50,14 +50,30 @@ export function gestionProfesseurs() {
 export function ajouterProfesseur(form) {
   const db = getFirestore();
   const professeurs = collection(db, "professeurs");
+  const erreurProf = document.getElementById("erreurProf");
+  if (
+    form.nom.value &&
+    form.prenom.value &&
+    form.matiere.value &&
+    form.classe.value &&
+    form.coordonnee.value
+  ) {
+    addDoc(professeurs, {
+      nom: form.nom.value,
+      prenom: form.prenom.value,
+      matiere: form.matiere.value,
+      classe: form.classe.value,
+      coordonnee: form.coordonnee.value,
+    }).then(() => {
+      erreurProf.style.display = "none";
+      form.reset();
+    });
+  } else {
+    erreurProf.style.display = "block";
+    erreurProf.innerHTML = "Merci de remplir les champs ";
 
-  addDoc(professeurs, {
-    nom: form.nom.value,
-    prenom: form.prenom.value,
-    matiere: form.matiere.value,
-    classe: form.classe.value,
-    coordonnee: form.coordonnee.value,
-  }).then(() => form.reset());
+    console.log("Merci de remplir le champs");
+  }
 }
 
 export function modifierProfesseur(id, nouveauProfesseur) {
