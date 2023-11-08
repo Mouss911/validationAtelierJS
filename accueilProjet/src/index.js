@@ -32,9 +32,9 @@ const db = getFirestore(app);
 
 
 const currentPath = window.location.pathname;
-const inscriptionPath = "/accueilProjet/inscription.html";
-const connexionPath = "/accueilProjet/dist/test.html";
-const profilPath = "/accueilProjet/dist/profil.html";
+const inscriptionPath = "//accueilProjet/inscription.html";
+const connexionPath = "//accueilProjet/dist/test.html";
+const profilPath = "//accueilProjet/dist/profil.html";
 
 const handleRegistration = async (event) => {
   event.preventDefault();
