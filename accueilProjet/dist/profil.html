@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Font favicon -->
+        <!-- <link rel="icon" href="images/favicon.png"> -->
+        <!-- bootstrap5 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <script src="https://kit.fontawesome.com/3e56bd9026.js" crossorigin="anonymous"></script>
+        <!-- Font Awesome6 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" integrity="sha512-SgaqKKxJDQ/tAUAAXzvxZz33rmn7leYDYfBP+YoMRSENhf3zJyx3SBASt/OfeQwBHA1nxMis7mM3EV/oYT6Fdw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap" rel="stylesheet">
+        <!-- button navbar -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <!-- tooltip -->
+        <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+        </script>
+        <link rel="stylesheet" href="sidebar.css">
+        <link rel="stylesheet" href="profil.css">
+        <script src="bundle.js" defer></script>
+        <title>Profil Challenge</title>
+    </head>
+<body>
+    <div class="container-fluid">
+        <div class="row nav p-2 mt-md-0 d-flex justify-content-between align-items-center">
+            <div class="col-6 col-md-2 logo">
+                <img src="/src/images/logo.png" alt="">
+            </div>
+            <div class="col-12 col-md-5 mt-3 text-center calendrier">
+                <p>Année scolaire: <span>2022-2023</span></p>                
+                <i class="fa-solid fa-angle-left ms-5 me-5"></i>
+                <i class="fa-solid fa-angle-right ms-5"></i>
+            </div>
+            <div class="col-12 col-md-2 search">
+                <input type="text" name="" id="" placeholder="Rechercher" class="p-3">
+            </div>
+            <div class="col-6 col-md-3 d-flex flex-row compte">
+                <i class="fa-regular fa-bell mt-1"></i>
+                <div class="profil ms-3">
+                    <img src="/src/images/profil.jpeg" alt="">
+                </div>
+                <a href="profil.html" style="color: #000000;">
+                    <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-2">
+                <div class="menu d-flex d-md-none">
+                       <i class="fa-solid fa-bars" id="menu"></i>
+                </div>
+                <div class="sidebar">
+                   <div class="logo-details" id="btn">
+                   </div>
+                   <ul class="nav-list">
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-table-columns"></i>
+                               <span class="links_name">Accueil</span>
+                           </a>
+                           <span class="tooltip">Accueil</span>
+                       </li>
+                       <li>
+                           <a href="#"><i class="fa-regular fa-user"></i>
+                               <span class="links_name">Personnel</span>
+                           </a>
+                           <span class="tooltip">Personnel</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-chart-pie"></i>
+                               <span class="links_name">Comptablité</span>
+                           </a>
+                           <span class="tooltip">Comptablité</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-graduation-cap"></i>
+                               <span class="links_name">Eléves</span>
+                           </a>
+                           <span class="tooltip">Eléves</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                               <i class="fa-solid fa-chalkboard-user"></i>
+                               <span class="links_name">Proffesseurs</span>
+                           </a>
+                           <span class="tooltip">Proffesseurs</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                            <i class="fa-regular fa-address-card"></i>
+                                   <span class="links_name">Autentifications</span>
+                           </a>
+                           <span class="tooltip">Autentifications</span>
+                       </li>
+                       <li>
+                           <a href="#">
+                            <i class="fa-solid fa-people-arrows"></i>
+                               <span class="links_name">Droits</span>
+                           </a>
+                           <span class="tooltip">Droits</span>
+                       </li>
+                   </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 offset-md-1 profilGeneral">
+                <h3>Profile</h3>
+                <div class="myProfil mb-2 d-flex justify-content-center">
+                    <img src="/src/images/profil.jpeg" alt="">
+                </div>
+                <div class="infoProfil p-3">
+                    <h5>Informations Personnelles</h5>
+                        <div class="row d-flex d-flex justify-content-between align-items-center mt-4">
+                            <div class="col-12 col-md-4 mb-4 d-md-flex">
+                                <p>Prenom:</p>
+                                <div class="info"><p id="user-name"></p></div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-4 d-md-flex">
+                                <p>Nom:</p>
+                                <div class="info"><p>Fall</p></div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-4 d-flex flex-row">   
+                                <p>Statut: </p>                               
+                                <button>Proviseur</button>
+                            </div>
+                            <div class="col-12 col-md-4 mb-4 d-md-flex">
+                                <p>Adresse:</p>
+                                <div class="info"><p>Guédiawaye</p></div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-4 d-md-flex">
+                                <p>Email:</p>
+                                <div class="info"><p id="user-email"></p></div>
+                            </div>
+                            <div class="col-12 col-md-4 mb-4 d-md-flex">
+                                <p>Téléphone:</p>
+                                <div class="info"><p>778622456</p></div>
+                            </div> 
+                        </div> 
+                    <h5>Informations Générales</h5>
+                        <div class="infoGeneral row d-flex justify-content-between align-items-center mt-4">
+                            <div class="col-12 col-md-6 mb-4 d-md-flex">
+                                <p>Nom de l'école:</p>
+                                <div class="info"><p>Lycée El Hadj Ibrahima Diop</p></div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-4 d-md-flex ">
+                                <p>Adresse:</p>
+                                <div class="info"><p>Colobane</p></div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-4 d-md-flex">
+                                <p>Email:</p>
+                                <div class="info"><p>elhadjid@school.com</p></div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-4 d-md-flex ">
+                            </div>
+                            <div class="col-12 col-md-6 d-flex flex-row">
+                              <p>Secteur:</p>
+                                <button>Education</button>
+                            </div>
+                        </div>                   
+                </div>
+            </div>
+        </div>
+    </div> 
+
+</body>
+</html>
