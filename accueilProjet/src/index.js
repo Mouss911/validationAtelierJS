@@ -29,7 +29,7 @@ const db = getFirestore(app);
 
 const currentPath = window.location.pathname;
 const inscriptionPath = "/dist/inscription.html";
-const connexionPath = "/dist/test.html";
+const connexionPath = "/accueilProjet/dist/test.html";
 const profilPath = "/dist/profil.html";
 
 const handleRegistration = async (event) => {
@@ -96,7 +96,7 @@ const handleLogin = async (event) => {
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
 
-    window.location.href = "dashbord.html";
+    window.location.href = "/accueilProjet/dist/dashbord.html";
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
