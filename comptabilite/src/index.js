@@ -36,11 +36,14 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
-  //   console.log(eleve);
+  eleve.sort((a, b) => b.dateDajout - a.dateDajout);
   const list = document.querySelector('#list');
   list.innerHTML = '';
+
   eleve.forEach((utili) => {
+    const list = document.querySelector('#list');
     const tr = document.createElement('tr');
+
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
@@ -52,30 +55,48 @@ onSnapshot(eleve, (snapshot) => {
   });
 });
 
-//recuperer les données et les afficher dans revenue
+//recuperer les données(nom, prenom, date) et les afficher dans revenue
+//___________________________________________________
+//partie pape cheikh
+
+// var database = firebase.database()
 
 onSnapshot(eleve, (snapshot) => {
   let eleve = [];
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
+  let totalEtatFin = 0;
+  const revenue = document.getElementById('revenue');
+  revenue.innerHTML = '';
   eleve.forEach((utili) => {
-    const revenue = document.getElementById("revenue")
-
-    let trbody = document.createElement('tr')
-
-   
-
+    let trbody = document.createElement('tr');
     trbody.innerHTML = `
-          <td class="border border-1">${utili.Timestamp}</td>
-          <td class="text-center">Inscription Scolarité</td>
-          <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
-          <td class="border border-1">${utili.etatFin} Fcfa</td>
-    `
-    console.log(utili.dateDajout);
-    revenue.append(trbody)
-  })
-})
+    <td class="border border-1">${utili.dateDajout
+      .toDate()
+      .toLocaleDateString()}</td>
+      <td class="text-center">${utili.type}</td>
+      <td class="text-center border border-1">${utili.prenom} ${utili.nom}</td>
+      <td class="border border-1">${utili.etatFin.toLocaleString("en-US")} Fcfa</td>
+      `;
+    revenue.appendChild(trbody);
+
+    //Calcule du revenue total
+    totalEtatFin += parseInt(utili.etatFin);
+  });
+
+  const total = document.getElementById('total');
+  total.innerHTML = '';
+  let trfoot = document.createElement('tr');
+  trfoot.innerHTML = `
+  <td colspan="3"><b>Total</b></td>
+  <td><b>${totalEtatFin.toLocaleString("en-US")} Fcfa </b></td>
+  `;
+  total.appendChild(trfoot);
+  total.appendChild(trfoot);
+  const revTotal = document.getElementById('revenuTotal')
+  revTotal.innerHTML = `${totalEtatFin.toLocaleString("en-US")} <span class="fw-bold">FCFA</span>`
+});
 
 // Enregistrer des données dans le Firebase
 const form = document.querySelector('.addToFirebase');
@@ -123,11 +144,14 @@ onSnapshot(certiesRef, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef.push({ ...doc.data(), id: doc.id });
   });
+  certiesRef.sort((a, b) => b.dateDajout - a.dateDajout);
   const list = document.querySelector('.mytbody');
   list.innerHTML = '';
   // console.log(certiesRef);
   certiesRef.forEach((utili) => {
+    const list = document.querySelector('.mytbody');
     const tr = document.createElement('tr');
+
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
@@ -163,11 +187,15 @@ onSnapshot(certiesRef2, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     certiesRef2.push({ ...doc.data(), id: doc.id });
   });
+  certiesRef2.sort((a, b) => b.dateDajout - a.dateDajout);
   const list = document.querySelector('.mytbodyIns');
   list.innerHTML = '';
+
   // console.log(certiesRef2);
   certiesRef2.forEach((utili) => {
+    const list = document.querySelector('.mytbodyIns');
     const tr = document.createElement('tr');
+
     tr.innerHTML = `
     <td class="text-start ps-2 border border-1">${utili.prenom}</td> <td class="text-start ps-2 border border-1">${utili.nom}</td>
         <td class="text-center border border-1">
@@ -193,3 +221,4 @@ myFormInscrip.addEventListener('submit', (e) => {
     dateDajout: serverTimestamp(),
   }).then(() => myFormInscrip.reset());
 });
+

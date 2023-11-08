@@ -53,7 +53,9 @@
                 <div class="profil ms-3">
                     <img src="./image/profil.jpeg" alt="">
                 </div>
-                <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
+                <a href="../../Acceuil/dist/profil.html" style="color: #000000;">
+                    <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
+                </a>
             </div>
         </div>
     </div>    
@@ -68,14 +70,14 @@
                    </div>
                    <ul class="nav-list">
                        <li>
-                           <a href="#">
+                           <a href="../../Acceuil/dist/dashbord.html">
                                <i class="fa-solid fa-table-columns"></i>
                                <span class="links_name">Accueil</span>
                            </a>
                            <span class="tooltip">Accueil</span>
                        </li>
                        <li>
-                           <a href="#"><i class="fa-regular fa-user"></i>
+                           <a href="../../personnels/dist/index.html"><i class="fa-regular fa-user"></i>
                                <span class="links_name">Personnel</span>
                            </a>
                            <span class="tooltip">Personnel</span>
@@ -95,7 +97,7 @@
                            <span class="tooltip">Eléves</span>
                        </li>
                        <li>
-                           <a href="#">
+                           <a href="../../personnels/dist/index.html">
                                <i class="fa-solid fa-chalkboard-user"></i>
                                <span class="links_name">Proffesseurs</span>
                            </a>
@@ -109,7 +111,7 @@
                            <span class="tooltip">Autentifications</span>
                        </li>
                        <li>
-                           <a href="#">
+                           <a href="../../droit/droit.html">
                             <i class="fa-solid fa-people-arrows"></i>
                                <span class="links_name">Droits</span>
                            </a>
@@ -129,7 +131,7 @@
                                 <div class="card-body">
                                     <h6 class="text-center pb-3">Revenus</h6>
                                     <div class="milieu d-flex justify-content-between">
-                                        <p>20.000.000 <span class="fw-bold">FCFA</span></p>
+                                        <p id="revenuTotal"></p>
                                         <img src="image/icone-revenu.png" alt="">
                                     </div>
                                 <p id="dateJour"></p>
@@ -182,7 +184,7 @@
                                 <form class="d-flex justify-content-between flex-wrap">
                                     <div class="mb-2 d-flex justify-content-between myInput2">
                                         <label for="classe" class="form-label mt-2 me-2">Classe: </label>
-                                        <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe" aria-label="Large select example">
+                                        <select class="form-select form-select-lg mb-3 fs-6 p-1 shadow" id="classe" aria-label="Large select example">
                                             <option class="dis" disabled selected>Classe</option>
                                             <option value="sizieme">6ème</option>
                                             <option value="cinquieme">5ème</option>
@@ -283,7 +285,7 @@
                         <form class="d-flex justify-content-between flex-wrap">
                             <div class="mb-2 d-flex justify-content-between myInput2">
                                 <label for="classe" class="form-label mt-2 me-2">Classe: </label>
-                                <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe"
+                                <select class="form-select form-select-lg mb-3 fs-6 p-1 shadow" id="classe"
                                     aria-label="Large select example">
                                     <option class="dis" disabled selected>Classe</option>
                                     <option value="sizieme">6ème</option>
@@ -321,7 +323,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Mensualites</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Inscription autres activités</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -355,14 +357,13 @@
                                         <option value="troisieme">3ème</option>
                                     </select>
                                 </div>
-                                <div id="liveAlertPlaceholder"></div>
                                 <button class="btn myBtn">Enregistrer</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Ladji Section 2 Mensualité -->
             <section class="myContDiv mb-5" id="mensualite">
                 <div class="inscriptions d-flex justify-content-between flex-wrap py-4 border-bottom">
@@ -383,7 +384,7 @@
                         <form class="d-flex justify-content-between flex-wrap">
                             <div class="mb-2 d-flex justify-content-between myInput2">
                                 <label for="classe" class="form-label mt-2 me-2">Classe: </label>
-                                <select class="form-select form-select-lg mb-3 fs-6 rounded-0" id="classe"
+                                <select class="form-select form-select-lg mb-3 fs-6 p-1 shadow" id="classe"
                                     aria-label="Large select example">
                                     <option class="dis" disabled selected>Classe</option>
                                     <option value="sizieme">6ème</option>
@@ -454,8 +455,7 @@
                                         <option value="troisieme">3ème</option>
                                     </select>
                                 </div>
-                                <div id="liveAlertPlaceholder"></div>
-                                <button class="btnAjouter">Enregistrer</button>
+                                <button class="btnAjouter btn myBtn">Enregistrer</button>
                             </form>
                         </div>
                     </div>
@@ -477,30 +477,12 @@
                                     <th scope="col" class="px-1">Montant</th>
                                 </tr>
                               </thead>
-                              <tbody id="revenue">
-                                <!-- <tr >
-                                  <td class="border border-1">10/10/2020</td>
-                                  <td class="text-center">Inscription Scolarité</td>
-                                  <td class="text-center border border-1">Moussa Ndiaye</td>
-                                  <td class="border border-1">45000 Fcfa</td>
-                                </tr>
-                                <tr>
-                                  <td class="border border-1">10/10/2020</td>
-                                  <td class="text-center border border-1">Inscription Cantine</td>
-                                  <td class="text-center border border-1">Absa Fall</td>
-                                  <td class="border border-1">45000 Fcfa</td>
-                              </tr>
-                              <tr>
-                                  <td colspan="3" class="border border-1"><b>TOTAL</b></td>
-                                  <td class="border border-1"> <b>45000 Fcfa</b></td>
-                                </tr> -->
-                              </tbody>
+                              <tbody id="revenue"></tbody>
+                              <tfoot id="total" class="border-0"></tfoot>
                             </table>
-                        
                     </div>
                 </div>
               </section>
-
             </div>
         </div>
     </div> 
