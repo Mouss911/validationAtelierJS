@@ -11,6 +11,7 @@ import {
   addDoc,
   doc,
   getDoc,
+  onSnapshot,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -32,9 +33,9 @@ const db = getFirestore(app);
 
 
 const currentPath = window.location.pathname;
-const inscriptionPath = "/validationAtelierJS/accueilProjet/inscription.html";
-const connexionPath = "/validationAtelierJS/accueilProjet/dist/test.html";
-const profilPath = "/validationAtelierJS/accueilProjet/dist/profil.html";
+const inscriptionPath = "/accueilProjet/dist/inscription.html";
+const connexionPath = "/accueilProjet/dist/test.html";
+const profilPath = "/accueilProjet/dist/profil.html";
 
 const handleRegistration = async (event) => {
   event.preventDefault();
@@ -69,6 +70,8 @@ const handleRegistration = async (event) => {
       emailecole: emailecole,
       secteur: secteur,
       nomecole: nomecole,
+      email: email,
+      password: password,
     };
 
     const userRef = collection(db, "utilisateurs");
@@ -111,22 +114,19 @@ const handleLogin = async (event) => {
 };
 
 const handleProfile = () => {
+  
+  const userRef = collection(db, "utilisateurs");
+    onSnapshot(userRef, (snapshot) => {
+      let userRef = [];
+      snapshot.docs.forEach((doc) => {
+        userRef.push({...doc.data(), id: doc.id })
+      })
+      userRef.forEach((utilisateur => {
+        console.log(utilisateur);
+      }))
+    });
+  
 
-  var database = firebase.database();
-  var ref = database.ref('utilisateurs');
-  ref.on('value', gotData, errData);
-
-  function gotData(data){
-    console.log(data.val());    
-    var utilisateurs = data.val();
-    var keys = Object.keys(utilisateurs);
-    console.log(keys);
-  }
-
-  function errData(err){
-    console.log('Error');
-    console.log(err);
-  }
 
 
   // Vérifiez si l'utilisateur est connecté
