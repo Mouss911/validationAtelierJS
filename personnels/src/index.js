@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 
 import { nombreProfesseur, nombreEmployer, nombreAssocie } from "./personnel.js";
 import { proff, gestionProfesseurs, ajouterProfesseur, modifierProfesseur, supprimerProfesseur,  } from './professeurs.js';
-import { gestionEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';
+import { getEmployer, ajouterEmployer, emplo, supprimerEmployer, modifierEmployer } from './employer.js';
 import {   gestionAssocie, ajouterAssocier } from "./associe.js";
 
 const firebaseConfig = {
@@ -23,7 +23,7 @@ let id;
 
 
 gestionProfesseurs();
-gestionEmployer();
+getEmployer();
 
 const form = document.querySelector(".addToFirebase");
 const formEmployer = document.querySelector(".formEmployer");
@@ -130,8 +130,10 @@ btnModifierEmplo.addEventListener("click", (e) => {
 
   container.innerHTML = "";
   console.log(container);
-  gestionEmployer();
+  getEmployer();
 });
+
+console.log(emplo);
 
 // supprimer et modifier un employe
 document.addEventListener("click", function (e) {
@@ -158,7 +160,7 @@ document.addEventListener("click", function (e) {
 
     container.innerHTML = "";
     console.log(container);
-    gestionEmployer();
+    getEmployer();
   }
 });
 
