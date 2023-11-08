@@ -68,8 +68,8 @@ onSnapshot(eleve, (snapshot) => {
   });
   eleve.sort((a, b) => b.dateDajout - a.dateDajout);
 
-  let totalEtatFin = 0;
   const revenue = document.getElementById('revenue');
+  let totalEtatFin = 0;
   revenue.innerHTML = '';
   eleve.forEach((utili) => {
     let trbody = document.createElement('tr');
