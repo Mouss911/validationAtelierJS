@@ -12,4 +12,3 @@ document.getElementById("bouton").addEventListener("click", (e) => {
    
     document.querySelector(".center2").style.display = "block";
 });
-

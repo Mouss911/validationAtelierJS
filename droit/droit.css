@@ -119,6 +119,10 @@ body{
     .i1{
         left: 200px;
     }
+    .content{
+        width: 100%;
+    }
+    
 }
 
 #editor-container {
@@ -126,6 +130,7 @@ body{
     overflow: auto;
     padding: 5px;
     border: solid 1px #ddd;
+
 }
 #editor-container:focus {
     outline: none;
