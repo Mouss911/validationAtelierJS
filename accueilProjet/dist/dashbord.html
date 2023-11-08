@@ -37,7 +37,7 @@
     <div class="container-fluid">
         <div class="row nav p-2 mt-md-0 d-flex justify-content-between align-items-center">
             <div class="col-6 col-md-2 logo">
-                <img src="/src/images/logo.png" alt="">
+                <img src="../src/images/logo.png" alt="">
             </div>
             <div class="col-12 col-md-5 mt-3 text-center calendrier">
                 <p>Année scolaire: <span>2022-2023</span></p>                
@@ -48,13 +48,52 @@
                 <input type="text" name="" id="" placeholder="Rechercher" class="p-3">
             </div>
             <div class="col-6 col-md-3 d-flex flex-row compte">
-                <i class="fa-regular fa-bell mt-1"></i>
-                <div class="profil ms-3">
-                    <img src="/src/images/profil.jpeg" alt="">
+                <i class="fa-regular fa-bell mt-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+
+          <div class="offcanvas offcanvas-sm offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications</h5>
+              <i class="fa-solid fa-gear" data-bs-dismiss="offcanvas" aria-label="Close"></i>
+            </div>
+            <div class="offcanvas-body">
+              <div class="container d-flex align-items-center justify-content-center h-100">
+                <div class="row  h-100 d-flex align-items-center justify-content-center">
+                  <div class="col-md-12 text-center d-flex align-items-center justify-content-center h-100">
+                    <p>Vous n'avez pas de notification</p>
+                  </div>
                 </div>
-                <a href="profil.html" style="color: #000000;">
+              </div>
+            </div>
+          </div>
+                <div class="profil ms-3">
+                    <img src="../src/images/Group 800.png" alt="">
+                </div>
+                <!-- <a href="profil.html" style="color: #000000;">
                     <i class="fa-solid fa-angle-down ms-3 mt-1"></i>
-                </a>
+                </a> -->
+
+                <div class="btn-group">
+                    <i class="fa-solid angle-down ms-3 mt-1 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></i>
+                    
+                    <ul class="dropdown-menu rounded-5 pt-0 pb-4">
+                      <div class="d-flex flex-column py-4 mb-2 justify-content-center gy-5 align-items-center divProfile">
+                        <div class="col-6 col-md-2  mx-auto my-2 mt-3 imageDivProfile">
+                          <img src="../src/images/Group 800.png" alt="" />
+                       </div>
+                       <h6 class="text-center mb-0 fst-italic">Moustapha Djigo</h6>
+                       <p class="mt-0 pt-0 text-light">Proviseur</p>
+                      </div>              
+                      <li><a class="dropdown-item   mt-3 " href="../../accueilProjet/dist/profil.html">
+                        <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
+                         Voir le profil
+                        </button></a></li>
+                      <li><a class="dropdown-item" href="../../accueilProjet/dist/test.html">
+        
+                        <button class="btn btnGreen fw-bold btn-light shadow btn-sm w-100" type="button">
+                          Deconnexion
+                        </button></a></li>
+                    </ul>
+                  </div>
             </div>
         </div>
     </div>    
