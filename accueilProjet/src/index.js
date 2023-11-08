@@ -97,7 +97,7 @@ const handleLogin = async (event) => {
     );
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
-    window.location.href = "/accueilProjet/dist/dashbord.html";
+    window.location.href = "dashbord.html";
 
   } catch (error) {
     const errorCode = error.code;
@@ -165,6 +165,7 @@ buttonInscription.addEventListener('click', function(){
 
 const buttonConnexion = document.getElementById('buttonConnexion')
 buttonConnexion.addEventListener('click', function(){
+  console.log('connexion')
   handleLogin();
 })
 
