@@ -12,6 +12,19 @@ display: block;
 display: none;
 }
 
+.divProfile{
+    background: url(Group\ 803.png) no-repeat center center/cover;
+    width: 100%;
+    height: 130px;
+}
+.imageDivProfile img{
+    width: 40px;
+    height: 40px;
+}
+.btnGreen{
+    color: #00E100;
+}
+
 .transition-left {
     transform: translateX(-100%);
     transition: transform 0.8s ease-in-out;
@@ -63,10 +76,10 @@ body{
     transform: translate(-50%, -50%);
 }
 
-i{
+.i1{
     color: #00E100;
     position : relative;
-    left: 800px;
+    left: 700px;
     bottom: 150px;
     font-size: 30px;
 }
@@ -103,8 +116,8 @@ i{
     .ba p{
         margin-left: 0;
     }
-    i{
-        left: 280px;
+    .i1{
+        left: 200px;
     }
 }
 

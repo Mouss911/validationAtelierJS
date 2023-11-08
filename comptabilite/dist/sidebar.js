@@ -1,3 +1,4 @@
+
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
 let menu = document.querySelector('#menu');
@@ -25,6 +26,7 @@ menu.addEventListener('click', () => {
 });
 
 // PARTIE MOUSSA
+
 dateJour = new Date().toLocaleDateString();
 document.getElementById("dateJour").innerHTML = dateJour;
 document.getElementById("dateJour2").innerHTML = dateJour;
