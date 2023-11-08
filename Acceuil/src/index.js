@@ -96,7 +96,7 @@ const handleLogin = async (event) => {
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
 
-    window.location.href = "dashbord.html";
+    window.location.href = "../dist/dashbord.html";
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
