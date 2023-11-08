@@ -66,6 +66,8 @@ onSnapshot(eleve, (snapshot) => {
   snapshot.docs.forEach((doc) => {
     eleve.push({ ...doc.data(), id: doc.id });
   });
+  eleve.sort((a, b) => b.dateDajout - a.dateDajout);
+
   let totalEtatFin = 0;
   const revenue = document.getElementById('revenue');
   revenue.innerHTML = '';

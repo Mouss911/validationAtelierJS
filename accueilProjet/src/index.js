@@ -27,10 +27,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const currentPath = window.location.pathname;
-const inscriptionPath = "/dist/inscription.html";
-const connexionPath = "/accueilProjet/dist/test.html";
-const profilPath = "/dist/profil.html";
+// const currentPath = window.location.pathname;
+// const inscriptionPath = "/accueilProjet/inscription.html";
+// const connexionPath = "/accueilProjet/dist/test.html";
+// const profilPath = "/accueilProjet/dist/profil.html";
 
 const handleRegistration = async (event) => {
   event.preventDefault();
@@ -82,7 +82,9 @@ const handleRegistration = async (event) => {
 };
 
 const handleLogin = async (event) => {
+  console.log('before prevent')
   event.preventDefault();
+  console.log('after prevent')
 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
@@ -95,8 +97,8 @@ const handleLogin = async (event) => {
     );
     const user = userCredential.user;
     console.log("Utilisateur connecté :", user);
+    window.location.href = "dashbord.html";
 
-    window.location.href = "/accueilProjet/dist/dashbord.html";
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -106,14 +108,20 @@ const handleLogin = async (event) => {
 
 const handleProfile = () => {
 
-  database = firebase.database();
+  var database = firebase.database();
   var ref = database.ref('utilisateurs');
   ref.on('value', gotData, errData);
 
   function gotData(data){
+    console.log(data.val());    
     var utilisateurs = data.val();
     var keys = Object.keys(utilisateurs);
     console.log(keys);
+  }
+
+  function errData(err){
+    console.log('Error');
+    console.log(err);
   }
 
 
@@ -149,15 +157,32 @@ const handleProfile = () => {
   // }
 };
 
-if (currentPath === inscriptionPath) {
-  console.log('page inscription')
-  const registrationForm = document.getElementById("registration-form");
-  registrationForm.addEventListener("submit", handleRegistration);
-} else if (currentPath === connexionPath) {
-  console.log("page connexion");
-  const loginForm = document.getElementById("signup");
-  loginForm.addEventListener("submit", handleLogin);
-} else if (currentPath === profilPath) {
+
+const buttonInscription = document.getElementById('buttonInscription')
+buttonInscription.addEventListener('click', function(){
+  handleRegistration();
+})
+
+const buttonConnexion = document.getElementById('buttonConnexion')
+buttonConnexion.addEventListener('click', function(){
+  console.log('connexion')
+  handleLogin();
+})
+
+const flecheProfile = document.getElementById('flecheProfile')
+flecheProfile.addEventListener('click', function(){
   handleProfile();
-  console.log("page profil");
-}
+})
+
+// if (currentPath === inscriptionPath) {
+//   console.log('page inscription')
+//   const registrationForm = document.getElementById("registration-form");
+//   registrationForm.addEventListener("submit", handleRegistration);
+// } else if (currentPath === connexionPath) {
+//   const loginForm = document.getElementById("signup");
+//   console.log("page connexion");
+//   loginForm.addEventListener("submit", handleLogin);
+// } else if (currentPath === profilPath) {
+//   console.log("page profil");
+//   handleProfile();
+// }
