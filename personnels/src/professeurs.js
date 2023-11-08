@@ -6,26 +6,34 @@ import {
   addDoc,
   updateDoc,
   deleteDoc,
+  serverTimestamp,
 } from "firebase/firestore";
 
 let proff;
 
-export function gestionProfesseurs() {
+export function getProfesseurs(personnel) {
   const db = getFirestore();
-  const professeurs = collection(db, "professeurs");
-  const container = document.getElementById("container");
+  const collectionProff = collection(db, "professeurs");
 
-  onSnapshot(professeurs, (snapshot) => {
-    let professeursData = [];
+  onSnapshot(collectionProff, (snapshot) => {
+    let professeurs = [];
     snapshot.docs.forEach((doc) => {
-      professeursData.push({ ...doc.data(), id: doc.id });
+      professeurs.push({ ...doc.data(), id: doc.id });
     });
-    professeursData.sort((a, b) => b.dateDajout - a.dateDajout)
-    proff = professeursData;
-    container.innerHTML = "";
-    professeursData.forEach((utilisateur) => {
-      let ligne = document.createElement("tr");
-      ligne.innerHTML = `
+    professeurs.sort((a, b) => b.dateDajout - a.dateDajout);
+    proff = professeurs;
+    personnel(professeurs);
+    gestionProfesseurs(professeurs);
+  });
+}
+
+export function gestionProfesseurs(utilisateurs) {
+  const container = document.getElementById("container");
+  container.innerHTML = "";
+
+  utilisateurs.forEach((utilisateur) => {
+    let ligne = document.createElement("tr");
+    ligne.innerHTML = `
                 <td class="mx-auto text-center d-none d-lg-block m-0">${utilisateur.nom}</td>
                 <td class="mx-auto text-center m-0">${utilisateur.prenom}</td>
                 <td class="mx-auto text-center m-0 d-none d-lg-block">${utilisateur.matiere}</td>
@@ -42,8 +50,7 @@ export function gestionProfesseurs() {
                 </td>
             `;
 
-      container.appendChild(ligne);
-    });
+    container.appendChild(ligne);
   });
 }
 
@@ -64,17 +71,37 @@ export function ajouterProfesseur(form) {
       matiere: form.matiere.value,
       classe: form.classe.value,
       coordonnee: form.coordonnee.value,
-      dateDajout: serverTimestamp()
+      dateDajout: serverTimestamp(),
     }).then(() => {
-      erreurProf.style.display = "none";
       form.reset();
+      erreurProf.style.display = "none";
     });
   } else {
     erreurProf.style.display = "block";
     erreurProf.innerHTML = "Merci de remplir les champs ";
-
+    alert("Merci de remplir le champs");
     console.log("Merci de remplir le champs");
   }
+}
+
+export function rechercheProff(rechercheInput, emplo) {
+  rechercheInput.addEventListener("input", (e) => {
+    const elementSaisie = e.target.value;
+    document.getElementById("container").innerHTML = "";
+    const collectionFilter = emplo.filter(
+      (element) =>
+        element.nom.toLowerCase().includes(elementSaisie.toLowerCase()) ||
+        element.prenom.toLowerCase().includes(elementSaisie.toLowerCase())
+    );
+
+    if (collectionFilter.length) {
+      document.getElementById("erreurRefProff").innerHTML = "";
+      gestionProfesseurs(collectionFilter);
+    } else {
+      document.getElementById("erreurRefProff").innerHTML =
+        "Aucun resultat trouver";
+    }
+  });
 }
 
 export function modifierProfesseur(id, nouveauProfesseur) {
